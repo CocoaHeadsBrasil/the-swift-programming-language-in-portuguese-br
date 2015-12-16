@@ -1,2 +1,2 @@
 # the-swift-programming-language-in-portuguese-br
-Tradução do guideline do Swift.org
+Tradução do livro do Swift.org
