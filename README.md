@@ -55,10 +55,16 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
 1. **Crie uma conta no GitBook.com:**
 
     * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no GitHub.
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_0.png" width="250" heigth="150">
 
 1. **Verifique seu e-mail:**
     
     * Vá até "Your profile" > "Settings"  e insira no seu email no campo de email do seu perfil.
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_1.png" width="250" heigth="150">
+
+    <img src="artes/project/tutorials/gitbook_web/figura_2.png" width="100" heigth="150">
     
     * Você receberá um email com o link de confirmação. Confirme-o, isso será importante para os próximos passos.
 
@@ -66,21 +72,37 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     
     * Clique em "Create your first book":
     
+    <img src="artes/project/tutorials/gitbook_web/figura_3.png" width="250" heigth="150">
+    
     * Na barra superior clique em "Import", cole o link do seu fork no primeiro campo e preencha os campos solicitados. Clique em "Create Book":
-
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_4.png" width="450" heigth="150">
+    
 1. **Configure o Webhook do GitBook:**
     
     * O Webhook do GitBook irá garantir que as alterações feitas por você sejam encaminhadas para o seu fork e vice-versa.
      
-    * Após criado o livro, vá em "Settings", e na seção "Publication" adicione a url do seu fork no campo "Git URL":
+    * Após criado o livro, vá em "Settings":
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_5.png" width="350" heigth="150">
+
+    * Na seção "Publication" adicione a url do seu fork no campo "Git URL":
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_6.png" width="650" heigth="450">
     
     * Verifique se o webhook foi instalado no seu fork:
- 
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_7.png" width="650" heigth="350">
+    
 1. **Começe a contribuir:**
     
     * Acesse o livro e clique em "Edit". Você será levado para a área de edição do livro:
     
+    <img src="artes/project/tutorials/gitbook_web/figura_8.png" width="350" heigth="350">
+
     * Na area de edição você encontra as ferramentas de edição de texto (canto superior esquerdo), o explorer de arquivos (lateral esquerda), o painel com o texto *raw* (painel esquerdo) e uma pré-visualização do texto (painel direto):
+    
+    <img src="artes/project/tutorials/gitbook_web/figura_9.png" width="950" heigth="350">
     
     * O branch no qual você está contribuindo é mostrado no canto superior diretiro da barra de ferramentas: 
     
