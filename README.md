@@ -106,6 +106,8 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     
     * O branch no qual você está contribuindo é mostrado no canto superior diretiro da barra de ferramentas: 
     
+    <img src="artes/project/tutorials/gitbook_web/figura_10.png" width="350" heigth="350">
+    
 1. **Conclusão:**
     * Ao concluir suas edições você pode salvar seu trabalho clicando em "Save", o icone laranja de um disquete na barra de ferramentas.
     
@@ -116,7 +118,8 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
 1. **Preferências:**
     
     * A imagens a baixo mostram algumas das características da interface web do GitBook:
-
+    <img src="artes/project/tutorials/gitbook_web/figura_11.png" width="450" heigth="350"> 
+    <img src="artes/project/tutorials/gitbook_web/figura_12.png" width="250" heigth="350">
 ---
 
 ###Licença
