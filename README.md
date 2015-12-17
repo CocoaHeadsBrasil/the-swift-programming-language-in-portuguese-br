@@ -90,21 +90,21 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     
     * Verifique se o webhook foi instalado no seu fork:
     
-    <img src="artes/project/tutorials/gitbook_web/figura_7.png" width="650" heigth="350">
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_7.png)
     
 1. **Começe a contribuir:**
     
     * Acesse o livro e clique em "Edit". Você será levado para a área de edição do livro:
     
-    <img src="artes/project/tutorials/gitbook_web/figura_8.png" width="350" heigth="350">
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_8.png)
 
     * Na area de edição você encontra as ferramentas de edição de texto (canto superior esquerdo), o explorer de arquivos (lateral esquerda), o painel com o texto *raw* (painel esquerdo) e uma pré-visualização do texto (painel direto):
     
-    <img src="artes/project/tutorials/gitbook_web/figura_9.png" width="950" heigth="350">
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_9.png)
     
     * O branch no qual você está contribuindo é mostrado no canto superior diretiro da barra de ferramentas: 
     
-    <img src="artes/project/tutorials/gitbook_web/figura_10.png" width="350" heigth="350">
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_10.png)
     
 1. **Conclusão:**
     * Ao concluir suas edições você pode salvar seu trabalho clicando em "Save", o icone laranja de um disquete na barra de ferramentas.
