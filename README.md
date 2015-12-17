@@ -5,7 +5,7 @@
 
 Esse projeto é uma iniciativa do CocoaHeads Brasil que tem como objetivo de traduzir o livro oficial da Apple para o Swift 2.2
 
-Link do livro original: [Swift.org](http://swift.org/download)
+Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift2.2).epub)
 
 TODO: Melhorar essa descrição e corrigir o link
 TODO: Adicionar screenshot com preview do livro no GitBook
