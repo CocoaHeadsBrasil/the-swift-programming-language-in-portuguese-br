@@ -48,7 +48,7 @@ TODO: Melhorar explicação do GitBook
 
 ### Contribuindo via GitBook.com
 
-Você também pode contrbuir através do seu navegador, utilizando a interface gráfica, e ferramentas de edição, oferecidas no site GitBook.com.
+Você pode contribuir, também, através da interface de edição de documentos disponível no GitBook.com, que oferece ferramentas de edição de texto, preview em tempo real de suas alterações, realiza *commit* automático ao salvar o documento e varias opções de preferências para o editor de texto.
 
 Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo que você já tenha feito o fork do projeto para sua conta no GitHub:
 
