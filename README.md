@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> 6bd332475c2346ae8a6f2132a5145eb64482f252
 # The Swift Programming Language - Tradução Português (BR)
 
 ![](artes/hero.png)
@@ -11,12 +7,6 @@
 Esse projeto é uma iniciativa do CocoaHeads Brasil que tem como objetivo de traduzir o livro oficial da Apple para o Swift 2.2
 
 Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift2.2).epub)
-<<<<<<< HEAD
-=======
-
-TODO: Melhorar essa descrição e corrigir o link
-TODO: Adicionar screenshot com preview do livro no GitBook
->>>>>>> 6bd332475c2346ae8a6f2132a5145eb64482f252
 
 ---
 
@@ -45,7 +35,6 @@ Caso queira observar como está ficando o texto, basta utilizar o Gitbook e segu
 TODO: Verificar um tipo específico para esse caso.
 
 
-<<<<<<< HEAD
 =======
 TODO: Adicionar licença apropriada
->>>>>>> 6bd332475c2346ae8a6f2132a5145eb64482f252
+
