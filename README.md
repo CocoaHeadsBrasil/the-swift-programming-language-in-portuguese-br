@@ -48,19 +48,19 @@ TODO: Melhorar explicação do GitBook
 
 ### Contribuindo via GitBook.com
 
-Você pode contribuir, também, através da interface de edição de documentos disponível no GitBook.com, que oferece ferramentas de edição de texto, preview em tempo real de suas alterações, realiza *commit* automático ao salvar o documento e varias opções de preferências para o editor de texto.
+Você pode contribuir, também, através da interface de edição de documentos disponível no GitBook.com, que oferece ferramentas de edição de texto, preview em tempo real de suas alterações, realiza *commit* automático para o seu fork ao salvar o documento e possui várias opções de preferências para o editor de texto.
 
-Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo que você já tenha feito o fork do projeto para sua conta no GitHub:
+Após realizar o fork do projeto para a sua conta no GitHub, sigas os 6 breves passos abaixo:
 
 1. **Crie uma conta no GitBook.com:**
 
-    * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no GitHub.
+    * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no [GitHub.com](https://github.com/).
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_0.png)
     
 1. **Confirme seu e-mail:**
     
-    * Vá até "Your profile" > "Settings" e preencha o campo "email" do seu perfil.
+    * Vá até "*Your profile*" > "*Settings*" e preencha o campo "*email*" do seu perfil.
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_1.png)
 
@@ -68,33 +68,33 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
 
 1. **Importe seu fork:**
     
-    * Clique em "Create your first book":
+    * Clique em "*Create your first book*":
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_3.png)
 
-    * Na barra superior clique em "Import", cole o link do seu fork no primeiro campo e preencha os campos solicitados. Clique em "Create Book":
+    * Na barra superior clique em "*Import*", cole o link do seu fork no primeiro campo e preencha os campos solicitados. Clique em "*Create Book*":
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_4.png)
     
-1. **Configure o Webhook do GitBook:**
+1. **Configure o *Webhook* do GitBook:**
     
-    * O Webhook do GitBook irá garantir que as alterações feitas por você sejam encaminhadas para o seu fork e vice-versa.
+    * O *Webhook* do GitBook irá garantir que as alterações feitas por você sejam encaminhadas para o seu *fork* e vice-versa.
      
-    * Após criado o livro, vá em "Settings":
+    * Após criado o livro, vá em "*Settings*":
         
     [Exemplo](artes/project/tutorials/gitbook_web/figura_5.png)
 
-    * Na seção "Publication" adicione a url do seu fork no campo "Git URL":
+    * Na seção "*Publication*" adicione a url do seu *fork* no campo "Git URL":
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_6.png)
     
-    * Verifique se o webhook foi instalado no seu fork:
+    * Verifique se o *webhook* foi instalado no seu *fork*:
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_7.png)
     
 1. **Começe a contribuir:**
     
-    * Acesse o livro e clique em "Edit". Você será levado para a área de edição do livro:
+    * Acesse o livro e clique em "*Edit*". Você será levado para a área de edição do livro:
     
     [Exemplo](artes/project/tutorials/gitbook_web/figura_8.png)
 
@@ -107,9 +107,9 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     [Exemplo](artes/project/tutorials/gitbook_web/figura_10.png)
     
 1. **Conclusão:**
-    * Ao concluir suas edições você pode salvar seu trabalho clicando em "Save", o icone laranja de um disquete na barra de ferramentas.
+    * Ao concluir suas edições você pode salvar seu trabalho clicando em "*Save*", o icone laranja de um disquete na barra de ferramentas.
     
-    * Ao clicar em "Save" um commit será gerado no *branch* que você estiver trabalhando dentro do repositório do seu fork. 
+    * Ao clicar em "*Save*" um commit será gerado no *branch* que você estiver contribuindo dentro do repositório do seu *fork*. 
     
     * Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub.
 
