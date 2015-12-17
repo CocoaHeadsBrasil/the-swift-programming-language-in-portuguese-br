@@ -111,7 +111,7 @@ Após realizar o fork do projeto para a sua conta no GitHub, sigas as 6 etapas a
     
     * Ao clicar em "*Save*" um commit será gerado no *branch* que você estiver contribuindo dentro do repositório do seu *fork*. 
     
-    * Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub.
+    * Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub ou por onde preferir.
 
 1. **Preferências:**
     
