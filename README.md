@@ -50,7 +50,7 @@ TODO: Melhorar explicação do GitBook
 
 Você pode contribuir, também, através da interface de edição de documentos disponível no GitBook.com, que oferece ferramentas de edição de texto, preview em tempo real de suas alterações, realiza *commit* automático para o seu fork ao salvar o documento e possui várias opções de preferências para o editor de texto.
 
-Após realizar o fork do projeto para a sua conta no GitHub, sigas os 6 breves passos abaixo:
+Após realizar o fork do projeto para a sua conta no GitHub, sigas as 6 etapas abaixo:
 
 1. **Crie uma conta no GitBook.com:**
 
