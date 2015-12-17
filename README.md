@@ -46,6 +46,32 @@ $ gitbook build
 
 TODO: Melhorar explicação do GitBook
 
+### Contribuindo via GitBook.com
+
+Você também pode contrbuir através do seu navegador, utilizando a interface gráfica, e ferramentas de edição, oferecidas no site do GitBook.
+
+Abaixo, segue o passo a passo de como contribuir desta maneira, assumindo que você já tenha feito o fork do projeto para sua conta no GitHub:
+
+1. **Crie uma conta no GitBook:**
+
+    Acesse o GitBook e crie uma conta de usuário usando os dados da sua conta no GitHub. 
+
+1. **Verifique seu e-mail:**
+
+
+1. **Importe seu fork:**
+
+
+1. **Configure o webhook:**
+
+
+1. **Começe a contribuir:**
+
+
+1. **Conclusão:**
+
+
+2. **Preferences:**
 ---
 
 ###Licença
