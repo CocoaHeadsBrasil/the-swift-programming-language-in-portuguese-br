@@ -58,7 +58,7 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     
     <img src="artes/project/tutorials/gitbook_web/figura_0.png" width="250" heigth="150">
 
-1. **Verifique seu e-mail:**
+1. **Confirme seu e-mail:**
     
     * Vá até "Your profile" > "Settings"  e insira no seu email no campo de email do seu perfil.
     
