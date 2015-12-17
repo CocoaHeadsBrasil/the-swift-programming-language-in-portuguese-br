@@ -89,6 +89,7 @@ Após realizar o fork do projeto para a sua conta no GitHub, sigas as 6 etapas a
 1. **Conclusão:**
      * Ao concluir suas edições você pode salvar seu trabalho clicando em "*Save*", o icone laranja de um disquete na barra de ferramentas. Ao clicar em "*Save*" um commit será gerado no *branch* que você estiver contribuindo dentro do repositório do seu *fork*. * Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub ou por onde preferir.
 
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_13.png)
 
 1. **Preferências:**
     
