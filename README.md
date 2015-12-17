@@ -14,13 +14,13 @@ Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProg
 
 Passos para começar a ajudar:
 
-1. Os capítulos disponíveis para tradução são criado em forma de issue no Github, por exemplo, Issue 3: Generics;
+1. Os capítulos disponíveis para tradução serão criados em forma de issue no Github, por exemplo, Issue 3: Generics;
 2. O arquivo *.md* é criado com o nome do capítulo, por exemplo, Generics;
 3. Caso queira contribuir com determinado capítulo, comente na issue para não haver traduções múltiplas do mesmo arquivo;
 
 ** Crie uma branch para determinado arquivo que queira traduzir e faça o Pull Request.
 
-Caso queira observar como está ficando o texto, basta utilizar o Gitbook e seguir as instruções.
+Caso queira observar como está ficando o texto, basta utilizar o Gitbook e seguir as instruções.[página do wiki]
 (https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br/wiki) 
 
 ### Processo de avaliação da tradução
