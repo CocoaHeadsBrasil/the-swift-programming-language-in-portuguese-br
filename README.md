@@ -120,6 +120,7 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     [Exemplo 1](artes/project/tutorials/gitbook_web/figura_11.png)
     
     [Exemplo 2](artes/project/tutorials/gitbook_web/figura_11.png)
+
 ---
 
 ###Licença
