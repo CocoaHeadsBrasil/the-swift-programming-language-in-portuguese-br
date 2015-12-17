@@ -1,3 +1,4 @@
+
 # The Swift Programming Language - Tradução Português (BR)
 
 ![](artes/hero.png)
@@ -7,47 +8,33 @@ Esse projeto é uma iniciativa do CocoaHeads Brasil que tem como objetivo de tra
 
 Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift2.2).epub)
 
-TODO: Melhorar essa descrição e corrigir o link
-TODO: Adicionar screenshot com preview do livro no GitBook
-
 ---
 
 ###Como contribuir?
 
-Basta criar os documentos traduzidos em arquivos *.md* específico, seguindo a estrutura sugerida pelo SUMMARY.md (abrir raw do arquivo para mais detalhes). A formatação do SUMMARY.md é importante, pois ela que gera o
+Passos para começar a ajudar:
 
-### Como utilizar o GitBook?:
+1. Os capítulos disponíveis para tradução serão criados em forma de issue no Github, por exemplo, Issue 3: Generics;
+2. O arquivo *.md* é criado com o nome do capítulo, por exemplo, Generics;
+3. Caso queira contribuir com determinado capítulo, comente na issue para não haver traduções múltiplas do mesmo arquivo;
 
-Para a tradução desse livro, estamos utilizando o [GitBook](http://gitbook.com).
+** Crie uma branch para determinado arquivo que queira traduzir e faça o Pull Request.
 
-O GitBook pode ser instalado utilizando o **NPM**, execute:
+Caso queira observar como está ficando o texto, basta utilizar o Gitbook e seguir as instruções [página do wiki]
+(https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br/wiki). 
 
-```
-$ npm install gitbook-cli -g
-```
+### Processo de avaliação da tradução
 
-Para criar um arquivo SUMMARY.md com a estrutura básica para o livro, execute:
-
-```
-$ gitbook init
-```
-
-Você pode iniciar um server local do GitBook (disponível num http://localhost:4000/ ou algo similar), execute:
-
-```
-$ gitbook serve
-```
-
-Ele vai gerar um servidor local para os seus testes. Caso você queira gerar uma build de um site estático para leitura online do livro, execute:
-
-```
-$ gitbook build
-```
-
-TODO: Melhorar explicação do GitBook
-
----
+1. O revisor verifica o Pull Request;
+2. Se achado erro de tradução ou erro de português, comenta na linha;
+3. O criador do PR corrige, ou responde se achar que não faz sentido;
+4. nova versão? volta pro (1). Se estiver com a tradução ok, comenta no final do PR com um OK!
 
 ###Licença
 
+TODO: Verificar um tipo específico para esse caso.
+
+
+=======
 TODO: Adicionar licença apropriada
+
