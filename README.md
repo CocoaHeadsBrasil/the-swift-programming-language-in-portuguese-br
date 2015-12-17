@@ -50,7 +50,7 @@ TODO: Melhorar explicação do GitBook
 
 Você pode contribuir, também, através da interface de edição de documentos disponível no GitBook.com, que oferece ferramentas de edição de texto, preview em tempo real de suas alterações, realiza *commit* automático para o seu fork ao salvar o documento e possui várias opções de preferências para o editor de texto.
 
-Após realizar o fork do projeto para a sua conta no GitHub, sigas as 6 etapas abaixo:
+Após realizar o *fork* do projeto para a sua conta no GitHub, sigas as 6 etapas abaixo:
 
 1. **Crie uma conta no GitBook.com:**
     * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no [GitHub.com](https://github.com/).
@@ -87,7 +87,7 @@ Após realizar o fork do projeto para a sua conta no GitHub, sigas as 6 etapas a
     [Exemplo 3](artes/project/tutorials/gitbook_web/figura_10.png)
     
 1. **Conclusão:**
-     * Ao concluir suas edições você pode salvar seu trabalho clicando em "*Save*", o icone laranja de um disquete na barra de ferramentas. Ao clicar em "*Save*" um commit será gerado no *branch* que você estiver contribuindo dentro do repositório do seu *fork*. * Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub ou por onde preferir.
+     * Ao concluir suas edições você pode salvar seu trabalho clicando em "*Save*", o icone laranja de um disquete na barra de ferramentas. Ao clicar em "*Save*" um commit será gerado no *branch* que você estiver contribuindo dentro do repositório do seu *fork*. Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub ou por onde preferir.
 
     [Exemplo](artes/project/tutorials/gitbook_web/figura_13.png)
 
