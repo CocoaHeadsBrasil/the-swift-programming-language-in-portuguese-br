@@ -62,7 +62,7 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     
     * Vá até "Your profile" > "Settings" e preencha o campo "email" do seu perfil.
     
-    ![](artes/project/tutorials/gitbook_web/figura_1.png)
+    [Imagem](artes/project/tutorials/gitbook_web/figura_1.png)
 
     * Você receberá um email com o link de confirmação. Confirme-o, isso será importante para os próximos passos.
 
