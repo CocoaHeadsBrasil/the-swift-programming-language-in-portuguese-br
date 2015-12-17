@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# the-swift-programming-language-in-portuguese-br
-Tradução do livro do Swift.org
+
 =======
 # The Swift Programming Language - Tradução Português (BR)
 
@@ -9,10 +7,8 @@ Tradução do livro do Swift.org
 
 Esse projeto é uma iniciativa do CocoaHeads Brasil que tem como objetivo de traduzir o livro oficial da Apple para o Swift 2.2
 
-Link do livro original: [Swift.org](http://swift.org/download)
+Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift2.2).epub)
 
-TODO: Melhorar essa descrição e corrigir o link
-TODO: Adicionar screenshot com preview do livro no GitBook
 
 ---
 
@@ -47,12 +43,8 @@ Ele vai gerar um servidor local para os seus testes. Caso você queira gerar uma
 ```
 $ gitbook build
 ```
-
-TODO: Melhorar explicação do GitBook
-
 ---
 
 ###Licença
 
 TODO: Adicionar licença apropriada
->>>>>>> c9881df10c56fbde5a3cd4fd3fac04d7d5b6b731
