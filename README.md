@@ -56,13 +56,13 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
 
     * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no GitHub.
     
-    [Imagem](artes/project/tutorials/gitbook_web/figura_0.png)
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_0.png)
     
 1. **Confirme seu e-mail:**
     
     * Vá até "Your profile" > "Settings" e preencha o campo "email" do seu perfil.
     
-    [Imagem](artes/project/tutorials/gitbook_web/figura_1.png)
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_1.png)
 
     * Você receberá um email com o link de confirmação. Confirme-o, isso será importante para os próximos passos.
 
@@ -70,20 +70,19 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     
     * Clique em "Create your first book":
     
-    ![Figura 4](artes/project/tutorials/gitbook_web/figura_3.png)
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_3.png)
 
     * Na barra superior clique em "Import", cole o link do seu fork no primeiro campo e preencha os campos solicitados. Clique em "Create Book":
     
-    [Figura 4](artes/project/tutorials/gitbook_web/figura_4.png)
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_4.png)
     
 1. **Configure o Webhook do GitBook:**
     
     * O Webhook do GitBook irá garantir que as alterações feitas por você sejam encaminhadas para o seu fork e vice-versa.
      
     * Após criado o livro, vá em "Settings":
-    
-    <img src="artes/project/tutorials/gitbook_web/figura_5.png" width="350" heigth="150">
-
+        
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_5.png)
     * Na seção "Publication" adicione a url do seu fork no campo "Git URL":
     
     <img src="artes/project/tutorials/gitbook_web/figura_6.png" width="650" heigth="450">
