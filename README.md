@@ -20,8 +20,8 @@ Passos para começar a ajudar:
 
 ** Crie uma branch para determinado arquivo que queira traduzir e faça o Pull Request.
 
-Caso queira observar como está ficando o texto, basta utilizar o Gitbook e seguir as instruções.[página do wiki]
-(https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br/wiki) 
+Caso queira observar como está ficando o texto, basta utilizar o Gitbook e seguir as instruções [página do wiki]
+(https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br/wiki). 
 
 ### Processo de avaliação da tradução
 
