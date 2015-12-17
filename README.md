@@ -52,16 +52,26 @@ Você também pode contrbuir através do seu navegador, utilizando a interface g
 
 Abaixo, segue o passo a passo de como contribuir desta maneira, assumindo que você já tenha feito o fork do projeto para sua conta no GitHub:
 
-1. **Crie uma conta no GitBook:**
+1. **Crie uma conta no GitBook.com:**
 
-    Acesse o GitBook e crie uma conta de usuário usando os dados da sua conta no GitHub.
-    
+    Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no GitHub.
+    <img src="artes/project/tutorials/gitbook_web/gitbook_0.png" width="250" heigth="550">
 
 1. **Verifique seu e-mail:**
-
+    
+    * Vá até "Your profile" > "Settings"  e insira no seu email no campo de email do seu perfil.
+    
+    * Você receberá um email com o link de confirmação. Confirme-o, isso será importante para os próximos passos.
 
 1. **Importe seu fork:**
-
+    
+    * Clique em "Create your first book"
+     <img src="artes/project/tutorials/gitbook_web/gitbook_0.png" 
+    width="250" 
+    heigth="550">
+    
+    
+    * Na barra superior clique em "Import"
 
 1. **Configure o webhook:**
 
