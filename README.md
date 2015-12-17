@@ -53,36 +53,26 @@ Você pode contribuir, também, através da interface de edição de documentos 
 Após realizar o fork do projeto para a sua conta no GitHub, sigas as 6 etapas abaixo:
 
 1. **Crie uma conta no GitBook.com:**
-
-    * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no [GitHub.com](https://github.com/).
-    
-    [Exemplo](artes/project/tutorials/gitbook_web/figura_0.png)
+    * Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no [GitHub.com](https://github.com/). [Exemplo](artes/project/tutorials/gitbook_web/figura_0.png)
     
 1. **Confirme seu e-mail:**
-    
-    * Vá até "*Your profile*" > "*Settings*" e preencha o campo "*email*" do seu perfil.
-    
-    [Exemplo](artes/project/tutorials/gitbook_web/figura_1.png)
-
+    * Vá até "*Your profile*" > "*Settings*" e preencha o campo "*email*" do seu perfil. [Ver exemplo](artes/project/tutorials/gitbook_web/figura_1.png)
     * Você receberá um email com o link de confirmação. Confirme-o, isso será importante para os próximos passos.
 
 1. **Importe seu fork:**
-    
-    * Clique em "*Create your first book*":
-    
-    [Exemplo](artes/project/tutorials/gitbook_web/figura_3.png)
-
+    * Clique em "*Create your first book*": 
+     - [Ver exemplo](artes/project/tutorials/gitbook_web/figura_3.png)
     * Na barra superior clique em "*Import*", cole o link do seu fork no primeiro campo e preencha os campos solicitados. Clique em "*Create Book*":
+     - [Ver exemplo](artes/project/tutorials/gitbook_web/figura_4.png)
     
-    [Exemplo](artes/project/tutorials/gitbook_web/figura_4.png)
-    
+
 1. **Configure o *Webhook* do GitBook:**
     
     * O *Webhook* do GitBook irá garantir que as alterações feitas por você sejam encaminhadas para o seu *fork* e vice-versa.
      
     * Após criado o livro, vá em "*Settings*":
         
-    [Exemplo](artes/project/tutorials/gitbook_web/figura_5.png)
+    - [Exemplo](artes/project/tutorials/gitbook_web/figura_5.png)
 
     * Na seção "*Publication*" adicione a url do seu *fork* no campo "Git URL":
     
