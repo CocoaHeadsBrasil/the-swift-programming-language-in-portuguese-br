@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# the-swift-programming-language-in-portuguese-br
-Tradução do livro do Swift.org
-=======
 # The Swift Programming Language - Tradução Português (BR)
 
 ![](artes/hero.png)
@@ -55,4 +51,3 @@ TODO: Melhorar explicação do GitBook
 ###Licença
 
 TODO: Adicionar licença apropriada
->>>>>>> c9881df10c56fbde5a3cd4fd3fac04d7d5b6b731
