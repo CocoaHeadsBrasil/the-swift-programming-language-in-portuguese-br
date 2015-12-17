@@ -83,9 +83,10 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
     * Após criado o livro, vá em "Settings":
         
     [Exemplo](artes/project/tutorials/gitbook_web/figura_5.png)
+
     * Na seção "Publication" adicione a url do seu fork no campo "Git URL":
     
-    <img src="artes/project/tutorials/gitbook_web/figura_6.png" width="650" heigth="450">
+    [Exemplo](artes/project/tutorials/gitbook_web/figura_6.png)
     
     * Verifique se o webhook foi instalado no seu fork:
     
