@@ -116,6 +116,7 @@ Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo 
 1. **Preferências:**
     
     * A imagens a baixo mostram algumas das características da interface web do GitBook:
+        
     [Exemplo 1](artes/project/tutorials/gitbook_web/figura_11.png)
     
     [Exemplo 2](artes/project/tutorials/gitbook_web/figura_11.png)
