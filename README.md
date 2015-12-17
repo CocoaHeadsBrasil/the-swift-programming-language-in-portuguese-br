@@ -54,7 +54,8 @@ Abaixo, segue o passo a passo de como contribuir desta maneira, assumindo que vo
 
 1. **Crie uma conta no GitBook:**
 
-    Acesse o GitBook e crie uma conta de usuário usando os dados da sua conta no GitHub. 
+    Acesse o GitBook e crie uma conta de usuário usando os dados da sua conta no GitHub.
+    
 
 1. **Verifique seu e-mail:**
 
