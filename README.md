@@ -48,14 +48,13 @@ TODO: Melhorar explicação do GitBook
 
 ### Contribuindo via GitBook.com
 
-Você também pode contrbuir através do seu navegador, utilizando a interface gráfica, e ferramentas de edição, oferecidas no site do GitBook.
+Você também pode contrbuir através do seu navegador, utilizando a interface gráfica, e ferramentas de edição, oferecidas no site GitBook.com.
 
-Abaixo, segue o passo a passo de como contribuir desta maneira, assumindo que você já tenha feito o fork do projeto para sua conta no GitHub:
+Abaixo, segue o breve passo a passo de como contribuir desta maneira, assumindo que você já tenha feito o fork do projeto para sua conta no GitHub:
 
 1. **Crie uma conta no GitBook.com:**
 
     Acesse o [GitBook.com](https://www.gitbook.com) e crie uma conta de usuário usando os dados da sua conta no GitHub.
-    <img src="artes/project/tutorials/gitbook_web/gitbook_0.png" width="250" heigth="550">
 
 1. **Verifique seu e-mail:**
     
@@ -65,24 +64,37 @@ Abaixo, segue o passo a passo de como contribuir desta maneira, assumindo que vo
 
 1. **Importe seu fork:**
     
-    * Clique em "Create your first book"
-     <img src="artes/project/tutorials/gitbook_web/gitbook_0.png" 
-    width="250" 
-    heigth="550">
+    * Clique em "Create your first book":
     
+    * Na barra superior clique em "Import", cole o link do seu fork no primeiro campo e preencha os campos solicitados. Clique em "Create Book":
+
+1. **Configure o Webhook do GitBook:**
     
-    * Na barra superior clique em "Import"
-
-1. **Configure o webhook:**
-
-
+    * O Webhook do GitBook irá garantir que as alterações feitas por você sejam encaminhadas para o seu fork e vice-versa.
+     
+    * Após criado o livro, vá em "Settings", e na seção "Publication" adicione a url do seu fork no campo "Git URL":
+    
+    * Verifique se o webhook foi instalado no seu fork:
+ 
 1. **Começe a contribuir:**
-
-
+    
+    * Acesse o livro e clique em "Edit". Você será levado para a área de edição do livro:
+    
+    * Na area de edição você encontra as ferramentas de edição de texto (canto superior esquerdo), o explorer de arquivos (lateral esquerda), o painel com o texto *raw* (painel esquerdo) e uma pré-visualização do texto (painel direto):
+    
+    * O branch no qual você está contribuindo é mostrado no canto superior diretiro da barra de ferramentas: 
+    
 1. **Conclusão:**
+    * Ao concluir suas edições você pode salvar seu trabalho clicando em "Save", o icone laranja de um disquete na barra de ferramentas.
+    
+    * Ao clicar em "Save" um commit será gerado no *branch* que você estiver trabalhando dentro do repositório do seu fork. 
+    
+    * Quando desejar fazer um *pull request* faça-o, normalmente, pelo site do GitHub.
 
+1. **Preferências:**
+    
+    * A imagens a baixo mostram algumas das características da interface web do GitBook:
 
-2. **Preferences:**
 ---
 
 ###Licença
