@@ -33,8 +33,3 @@ Caso queira observar como está ficando o texto, basta utilizar o Gitbook e segu
 ###Licença
 
 TODO: Verificar um tipo específico para esse caso.
-
-
-=======
-TODO: Adicionar licença apropriada
-
