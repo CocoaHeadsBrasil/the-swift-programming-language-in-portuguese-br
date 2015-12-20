@@ -16,7 +16,7 @@ Funcões alinhadas e globais, como apresentado em [Funcões](./functions.md#Func
 
 As expressões de *closure* do Swift possuem uma sintaxe clara com otimizações que encorajam uma sintaxe curta e que evita mal entendidos em cenários comums. Essas otimizações incluem:
 
-* Dedução de parametros e tipos de valores de retorno a partir do contexto.
+* Dedução de parametros e tipos de valor de retorno a partir do contexto.
 * Retorno implícito a partir de expressões de fechamento únicas.
 * Argumentos com nomes simples .
 * Sintaxe do fechamento de fuga. (Trailing closure sintax).
