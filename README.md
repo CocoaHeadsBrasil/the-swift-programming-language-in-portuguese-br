@@ -11,12 +11,20 @@ Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProg
 
 ### Como contribuir?
 
-Passos para começar a ajudar:
+#### Passos para começar a ajudar:
 
 1. Os capítulos disponíveis para tradução serão criados como issues no GitHub;
 2. Os arquivos *.md* estão criados com o nome de cada capítulo. Ex.: `bemvindo/sobre.md`
 3. Caso queira contribuir com a tradução, crie uma issue com o formato `[Tradução] <seção> - <capítulo>` (ex.: `[Tradução] Bem-vindo ao Swift - Sobre o Swift`) e comente na issue avisando, para não haver traduções múltiplas do mesmo arquivo.
 4. Crie uma branch para determinado arquivo que queira traduzir e faça o Pull Request.
+
+#### Formatação do Markdown:
+
+1. Palavras em inglês que não forem traduzidas, colocar em itálico;
+2. Código inline colocar entre crases para ficar alo como: defina um constante de tipo `String` e valor `"John Appleseed"`;
+3. Código em bloco deve conter syntax highlight do Swift;
+4. Traduzir termo técnico apenas se fizer sentido. Se for prejudicar o entendimento, é preferível manter o termo original. ex.: Closures;
+5. Notas de rodapé devem ser criadas como quote do markdown, usando o sinal de `>` na frente
 
 Caso queira visualizar como está ficando o texto, basta utilizar o Gitbook. Para isso, siga as instruções na nossa [página do wiki]
 (https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br/wiki). 
