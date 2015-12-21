@@ -7,9 +7,9 @@ Um desconstrutor - do original *deinitializer* - é chamado imediatamente antes 
 
 ### Como Desconstrução Funciona
 
-Swift automaticamente desaloca suas instâncias quando elas não são mais necessárias, para liberar recursos. Swift manuseia o gerenciamento de memória de instâncias através do *automatic reference counting (ARC)*, como descrito em [Automatic Reference Counting](chapter15.md). Tipicamente você não precisa realizar limpeza manual quando suas instâncias são desalocadas. Porém, quando você está trabalhando com os seus próprios recursos, você talvez precise realizar alguma limpeza adicional por conta própria. Por exemplo, se você criar uma classe customizada para abrir um arquivo e escrever alguns dados nele, você talvez precise fechá-lo antes da instância da classe ser desalocada.
+Swift automaticamente desaloca suas instâncias quando elas não são mais necessárias, para liberar recursos. Swift manuseia o gerenciamento de memória de instâncias através da contagem automática de referência - do original *automatic reference counting (ARC)* - , como descrito em [Contagem Automática de Referencia](chapter15.md). Tipicamente você não precisa realizar limpeza manual quando suas instâncias são desalocadas. Porém, quando você está trabalhando com os seus próprios recursos, você talvez precise realizar alguma limpeza adicional por conta própria. Por exemplo, se você criar uma classe customizada para abrir um arquivo e escrever alguns dados nele, você talvez precise fechá-lo antes da instância da classe ser desalocada.
 
-Definições de classes podem conter no máximo um inicializador por classe. O inicializador não leva nenhum parâmetro e é escrito sem parênteses.
+Definições de classes podem conter no máximo um desconstrutor por classe. O desconstrutor não leva nenhum parâmetro e é escrito sem parênteses.
 
 ```swift
 deinit {
@@ -21,7 +21,7 @@ deinit {
 
 Desconstrutores são chamados automaticamente, bem antes da desalocação da instância entrar em cena. Você não tem permissão para chamar um desconstrutor por conta própria. Desconstrutores de superclasses são herdados por suas subclasses, e os desconstrutores das superclasses são chamados automaticamente ao final da implementação de um desconstrutor de uma subclasse. Desconstrutores de superclasses são sempre chamados, mesmo se a subclasse não fornecer um desconstrutor próprio.
 
-Como uma instância não é desalocada até depois de seu desconstrutor ser chamado, um desconstrutor pode acessar todas as propriedades da instância na qual ele é chamado e pode modificar seu comportamento baseado naquelas propriedades (como vizualizar o nome de um arquivo que precisa ser fechado).
+Como uma instância não é desalocada até depois de seu desconstrutor ser chamado, um desconstrutor pode acessar todas as propriedades da instância na qual ele é chamado e pode modificar seu comportamento baseado naquelas propriedades (como visualizar o nome de um arquivo que precisa ser fechado).
 
 ### Desconstrutores em Ação
 
