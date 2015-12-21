@@ -7,7 +7,7 @@ Um desconstrutor - do original *deinitializer* - é chamado imediatamente antes 
 
 ### Como Desconstrução Funciona
 
-Swift automaticamente desaloca suas instâncias quando elas não são mais necessárias, para liberar recursos. Swift manuseia o gerenciamento de memória de instâncias através da contagem automática de referência - do original *automatic reference counting (ARC)* - , como descrito em [Contagem Automática de Referência](chapter15.md). Tipicamente você não precisa realizar limpeza manual quando suas instâncias são desalocadas. Porém, quando você está trabalhando com os seus próprios recursos, você talvez precise realizar alguma limpeza adicional por conta própria. Por exemplo, se você criar uma classe customizada para abrir um arquivo e escrever alguns dados nele, você talvez precise fechá-lo antes da instância da classe ser desalocada.
+Swift automaticamente desaloca suas instâncias quando elas não são mais necessárias, para liberar recursos. Swift manuseia o gerenciamento de memória de instâncias através da contagem automática de referência - do original *automatic reference counting (ARC)* - , como descrito em [Contagem Automática de Referência](guia/automatic_reference_couting.md). Tipicamente você não precisa realizar limpeza manual quando suas instâncias são desalocadas. Porém, quando você está trabalhando com os seus próprios recursos, você talvez precise realizar alguma limpeza adicional por conta própria. Por exemplo, se você criar uma classe customizada para abrir um arquivo e escrever alguns dados nele, você talvez precise fechá-lo antes da instância da classe ser desalocada.
 
 Definições de classes podem conter no máximo um desconstrutor por classe. O desconstrutor não leva nenhum parâmetro e é escrito sem parênteses.
 
