@@ -1,10 +1,11 @@
-# Deinitialization
-# First Chapter
+## Desconstrutores
+
+### First Chapter
 
 Um desconstrutor - do original *deinitializer* - é chamado imediatamente antes de uma instância de uma classe ser desalocada. Você escreve desconstrutores com a palavra-chave `deinit`, semelhante à forma como inicializadores são escritos com a palavra-chave `init`. Desconstrutores estão apenas disponíveis em tipos de classes.
 
 
-## Como Desconstrução Funciona
+### Como Desconstrução Funciona
 
 Swift automaticamente desaloca suas instâncias quando elas não são mais necessárias, para liberar recursos. Swift manuseia o gerenciamento de memória de instâncias através do *automatic reference counting (ARC)*, como descrito em [Automatic Reference Counting](chapter15.md). Tipicamente você não precisa realizar limpeza manual quando suas instâncias são desalocadas. Porém, quando você está trabalhando com os seus próprios recursos, você talvez precise realizar alguma limpeza adicional por conta própria. Por exemplo, se você criar uma classe customizada para abrir um arquivo e escrever alguns dados nele, você talvez precise fechá-lo antes da instância da classe ser desalocada.
 
@@ -22,7 +23,7 @@ Desconstrutores são chamados automaticamente, bem antes da desalocação da ins
 
 Como uma instância não é desalocada até depois de seu desconstrutor ser chamado, um desconstrutor pode acessar todas as propriedades da instância na qual ele é chamado e pode modificar seu comportamento baseado naquelas propriedades (como vizualizar o nome de um arquivo que precisa ser fechado).
 
-## Desconstrutores em Ação
+### Desconstrutores em Ação
 
 Aqui está um exemplo de um desconstrutor em ação. Este exemplo define dois novos tipos, `Banco` e `Jogador`, para um jogo simples. A classe `Banco` pode gerênciar a moeda fictícia, que nunca pode ter mais de 10.000 moedas em circulação. Só pode existir um 'Banco' no jogo, por isso o `Banco` será implementado como uma classe com propriedades e métodos do tipo para armazenar e gerênciar seu estado atual:
 
