@@ -21,7 +21,7 @@ As expressões de fechamento do Swift possuem uma sintaxe clara com otimizaçõe
 * Argumentos com nomes simples .
 * Sintaxe do fechamento de fuga. - do inglês *Trailing closure sintax*.
 
-###Expressões de Fechamento - *Closure Expressions*
+###Expressões de Fechamento
 
 Funções alinhadas, como apresentado em [Funções Alinhadas](./functions.md#nested_functions), são um meio conveniente de nomear e definir blocos independentes de código como parte de uma função maior. Contudo, algumas vezes é útil escrever versões mais curtas de funções como contructos sem uma declaração completa e nome. Isso é particularmente verdade quando você trabalha com funções ou métodos que pegam funções como um ou mais de seus parametros.
 
