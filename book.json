@@ -1,7 +1,6 @@
 {
     "plugins": [
-        "highlight",
-        "fontsettings"
+        "highlight"
     ],
     "pluginsConfig": {}
 }
