@@ -1,6 +1,6 @@
 # Closures
 
-*Closures* são blocos de funcionalidade idependentes que podem ser passados e usados em seu código. *Closures*, em Swift, são similares aos blocos em C e Objective-C e à *lambdas* em outras linguagens de programção.
+*Closures* - em português "fechamentos" - são blocos de funcionalidade idependentes que podem ser passados e usados em seu código. *Closures*, em Swift, são similares aos blocos em C e Objective-C e à *lambdas* em outras linguagens de programação.
 
 *Closures* podem capturar e armazenar referências para qualquer constante e variáveis do contexto no qual ele foi definido. Isso é conhecido como *fechamento sobre* - em inglês *closing over* - constantes e variáveis. O Swift se encarrega de realizar o gerenciamento de memória de captura por você.
 
@@ -12,7 +12,7 @@ Funcões globais e alinhadas, como apresentado em [Funcões](./functions.md#func
 
 * Funcões globais são *closures* que possuem um nome e podem capturar quaisquer valores.
 * Funções alinhadas são *closures* que possuem um nome e podem capturar valores a partir de suas funções fechadas.
-* Expressões de *closure* são *closures* sem nome, escritos com uma sintaxe limpa, que podem capturar valores dos contextos ao seu redor.
+* Expressões de fechamento - do inglês *Closure Expressions* - são *closures* sem nome, escritos com uma sintaxe limpa, que podem capturar valores dos contextos ao seu redor.
 
 As expressões de *closure* do Swift possuem uma sintaxe clara com otimizações que encorajam uma sintaxe curta e que evita mal entendidos em cenários comums. Essas otimizações incluem:
 
