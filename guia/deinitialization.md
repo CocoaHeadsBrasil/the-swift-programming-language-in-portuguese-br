@@ -102,7 +102,7 @@ print("Existem agora \(Banco.moedasNoBanco) moedas sobrando no banco")
 ```
 Uma nova instância de `Jogador` é criada, com uma solicitação de 100 moedas se elas estiverem disponíveis. Essa instância de `Jogador` é armazenada em uma variável opcional `Jogador` chamada `jogadorUm`. Uma variável opcional é usada aqui, porque jogadores podem sair do jogo a qualquer momento. A opcional lhe permite controlar a existência de um jogador no jogo.
 
-Como `jogadorUm` é uma opcional, ele é qualificado com um ponto de exclamação (!) quando sua propriedade `moedasNaCarteira` é acessada para imprimir seu número atual de moedas, e sempre que seu método `ganharMoedas(_:)` é chamado:
+Como `jogadorUm` é uma opcional, ele é qualificado com um ponto de exclamação (`!`) quando sua propriedade `moedasNaCarteira` é acessada para imprimir seu número atual de moedas, e sempre que seu método `ganharMoedas(_:)` é chamado:
 
 ```swift
 jogadorUm!.ganharMoedas(2_000)
