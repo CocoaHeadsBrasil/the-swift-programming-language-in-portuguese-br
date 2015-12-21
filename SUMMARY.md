@@ -17,7 +17,7 @@
     * [Herança](guia/heranca.md)
     * [Initialization](guia/initialization.md)
     * [Deinitialization](guia/deinitialization.md)
-    * [Automatic Reference Counting](guia/automatic_reference_couting.md)
+    * [Contagem Automática de Referência](guia/automatic_reference_couting.md)
     * [Optional Chaining](guia/optional_chaining.md)
     * [Tratamento de Erro](guia/tratamento_erro.md)    
     * [Type Casting](guia/type_casting.md)
