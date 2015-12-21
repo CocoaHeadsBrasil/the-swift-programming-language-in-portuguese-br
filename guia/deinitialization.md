@@ -13,8 +13,8 @@ Definições de classes podem conter no máximo um inicializador por classe. O i
 ```swift
 deinit {
 
-// perform the deinitialization
-
+    // perform the deinitialization
+    
 }
 ```
 
@@ -29,23 +29,23 @@ Aqui está um exemplo de um desconstrutor em ação. Este exemplo define dois no
 ```swift
 class Banco {
 
-static var moedasNoBanco = 10_000
-
-static func retirarMoedas(var númeroDeMoedasParaRetirar: Int) -> Int {
-
-númeroDeMoedasParaRetirar = min(númeroDeMoedasParaRetirar, moedasNoBanco)
-
-moedasNoBanco -= númeroDeMoedasParaRetirar
-
-return númeroDeMoedasParaRetirar
-}
-
-static func receberMoedas(moedas: Int) {
-
-moedasNoBanco += moedas
-
-}
-
+    static var moedasNoBanco = 10_000
+    
+    static func retirarMoedas(var númeroDeMoedasParaRetirar: Int) -> Int {
+        
+        númeroDeMoedasParaRetirar = min(númeroDeMoedasParaRetirar, moedasNoBanco)
+        
+        moedasNoBanco -= númeroDeMoedasParaRetirar
+        
+        return númeroDeMoedasParaRetirar
+    }
+    
+    static func receberMoedas(moedas: Int) {
+    
+        moedasNoBanco += moedas
+        
+    }
+    
 }
 ```
 
@@ -60,28 +60,29 @@ A classe `Jogador` descreve um jogador no jogo. Cada jogador tem um certo númer
 ```swift
 class Jogador {
 
-var moedasNaCarteira: Int
-
-init(moedas: Int) {
-
-moedasNaCarteira = Banco.retirarMoedas(moedas)
-
-}
-
-func ganharMoedas(moedas: Int) {
-
-moedasNaCarteira += Banco.retirarMoedas(moedas)
-
-}
-
-deinit {
-
-Banco.receberMoedas(moedasNaCarteira)
-
-}
-
+    var moedasNaCarteira: Int
+    
+    init(moedas: Int) {
+    
+        moedasNaCarteira = Banco.retirarMoedas(moedas)
+        
+    }
+    
+    func ganharMoedas(moedas: Int) {
+    
+        moedasNaCarteira += Banco.retirarMoedas(moedas)
+        
+    }
+    
+    deinit {
+    
+        Banco.receberMoedas(moedasNaCarteira)
+        
+    }
+    
 }
 ```
+
 Cada isntância de `Jogador` é inicializada com uma permissão inicial para um número específico de moedas do banco durante a inicializacão, apesar de uma instância de `Jogador` poder receber menos do que aquele número se não houver moedas suficientes disponíveis.
 
 A classe `Jogador` define um método `ganharMoedas(_:)`, o qual recupera um certo número de moedas do banco e as adiciona à carteira do jogador. A classe `Jogador`também implementa um desconstrutor, o qual é chamado bem antes de um instância de `Jogador` ser desalocada. Aqui, o desconstrutor simplesmente retorna todas as moedas do jogador ao banco:
