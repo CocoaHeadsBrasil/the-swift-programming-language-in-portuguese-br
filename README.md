@@ -31,11 +31,12 @@ Caso queira visualizar como está ficando o texto, basta utilizar o Gitbook. Par
 
 ### Processo de avaliação da tradução
 
-1. Um (ou mais de um) revisor verifica o Pull Request;
-2. Se achado erro de tradução ou erro de português, o revisor comenta na linha;
-3. O criador do PR corrige ou responde se achar que não faz sentido, se discorda ou se tiver algo mais a acrescentar;
-4. Se o criador do PR enviar alguma atualização, voltamos para o item (1).
-5. Se a tradução estiver OK, o revisor comenta no final do PR com um :+1:
+1. Crie um Pull Request com o título no formato: `[Revisão] <seção> - <capítulo>` (ex.: `[Revisão] Bem-vindo ao Swift - Sobre o Swift`)
+2. Um (ou mais de um) revisor verifica o Pull Request;
+3. Se achado erro de tradução ou erro de português, o revisor comenta na linha;
+4. O criador do PR corrige ou responde se achar que não faz sentido, se discorda ou se tiver algo mais a acrescentar;
+5. Se o criador do PR enviar alguma atualização, voltamos para o item (1).
+6. Se a tradução estiver OK, o revisor comenta no final do PR com um :+1:
 
 ### Licença
 
