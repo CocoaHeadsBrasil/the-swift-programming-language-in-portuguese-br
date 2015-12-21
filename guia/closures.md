@@ -58,14 +58,14 @@ Contudo, esta não é a melhor maneira de escrever o que essencialmente é uma f
 
 ###Sintaxe da Expressão de Fechamento
 
-A taxe de uma expressãode fechamento possui, geralmente, a seguinte forma:
+A sintaxe de expressão de fechamento geralmente possui a seguinte forma:
 
 ```swift
     {(parameters) -> return type in
         statements
     }
 ```
-A sintaxe de expressões de fechamento podem usar parâmetros constantes, parâmetros variáveis e parâmetros de entrada e saída. Valores padrão não podem ser fornecidos. Parâmetros variádicos podem ser usados se você nomear o parâmetro varíadico. Tuplas, também, podem ser utilizadas como tipos de parâmetro e tipos de devolução.
+A sintaxe de expressões de fechamento podem usar parâmetros constantes, parâmetros variáveis e parâmetros de entrada e saída. Valores padrão não podem ser fornecidos. Parâmetros variádicos podem ser usados caso você os nomeie. Tuplas, também, podem ser utilizadas como tipos de parâmetro e tipos de devolução.
 
 O exemplo abaixo mostra uma versão da expressão de fechamento da função `backwards(_:_:)` que definimos anteriormente:
 
@@ -77,9 +77,9 @@ reversed = names.sort({(s1: String, s2: String) -> Bool in
 
 Note que a declaração dos parâmetros e o tipo de retorno para esse *closure* é idêntica a declaração da função `backwards(_:_:)`. Em ambos os casos, o *closure* é escrito como `(s1: String, s2: String) -> Bool`. Contudo, para a expressão de fechamento *inline*, os parâmetros e os tipos de devolução são escritos dentro da chaves `{...}` e não fora delas.
 
-O inicio do corpo do *closure* é introduzido pela palavra-chave `in`. Essa palavra-chave indica que a definição dos parâmetros e o tipo de devolução do *closure* estão treminaram e o corpo do *closure* está prestes a começar.
+O inicio do corpo do *closure* é introduzido pela palavra-chave `in`. Essa palavra-chave indica que a definição dos parâmetros e o tipo de devolução do *closure* terminou e o corpo do *closure* está prestes a começar.
 
-Devido ao pequeno tamanho de seu corpo, o *closure* pode ser escrito em uma única lina de código:
+Devido ao pequeno tamanho de seu corpo, o *closure* pode ser escrito em uma única linha de código:
 
 ```swift
 reversed = names.sort({(s1:String, s2:String) -> Bool in return s1 > s2 })
@@ -89,11 +89,11 @@ Isso ilustra que as chamadas do método `sort(_:)` permaneceram as mesmas. Um pa
 
 ###Deduzindo o tipo a partir do contexto
 
-Devido ao fato de o *closure* de ordenação ser passado como um método, o Swift e capaz de deduzir os tipos de paramêtros do *closure* e o tipo de valor que o *closure* devolve. O étodo `sort(_:)` começa a ser chamado como um *array*  de *strings*, portanto seus argumentos devem ser uma função do tipo `(String, String) -> Bool`. Isso significa que os tipos `(String, String)` e `Bool` não precisam ser escritos como parte da definição expressão de fechamento. Como todos os tipos podem ser deduzidos, a seta de devolução (`->`) e os parênteses envolta dos nomes dos parametros também podem ser omitidos:
+Devido ao fato de o *closure* de ordenação ser passado como um método, o Swift e capaz de deduzir os tipos de paramêtros do *closure* e o tipo de valor que o *closure* devolve. O método `sort(_:)` começa a ser chamado sobre um *array* de *strings*, portanto seus argumentos devem ser uma função do tipo `(String, String) -> Bool`. Isso significa que os tipos `(String, String)` e `Bool` não precisam ser escritos como parte da definição da expressão de fechamento. Como todos os tipos podem ser deduzidos, a seta de devolução (`->`) e os parênteses envolta dos nomes dos parametros também podem ser omitidos:
 
 ```swift
 reversed = names.sort( { s1, s2 in return s1 > s2 } )
 ```
 
-Sempre é possível deduzir os tipod dos parâmetros e o tipo de devolução quando passamos um *closure* para a função ou método como uma expressão de fechamento *inline*. Como resultado, você nunca precisara escrever uma *inline closure* em sua forma completa quando o *closure* é usado como um argumento de função ou método. Além do mais, você ainda pode fazer tipos explicitos se desejar, e encorajamos a fazer isso se evitar ambiguidade para os leitores do seu código. No caso do método `sort(_:)`, o propósito do *closure* é claro a partir do fato de que a ordenação está se encarregando do trabalho, e é seguro para o leitor assumir que o *closure* está trabalhando com valores do tipo `String`, porque ele é usado junto da ordenação de um *array* de *strings*. 
+Sempre é possível deduzir os tipos dos parâmetros e o tipo de devolução quando passamos um *closure* para a função ou método como uma expressão de fechamento *inline*. Como resultado, você nunca precisará escrever uma *inline closure* em sua forma completa quando o *closure* é usado como um argumento de função ou de método. Além do mais, você ainda pode fazer tipos explicitos se desejar, e encorajamos a fazer isso caso evite ambiguidade para os leitores do seu código. No caso do método `sort(_:)`, o propósito do *closure* é claro a partir do fato de que o objetivo é a ordenação, e é seguro para o leitor assumir que o *closure* está trabalhando com valores do tipo `String`, porque ele é usado para ordenação de um *array* de *strings*. 
 
