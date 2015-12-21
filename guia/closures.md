@@ -86,3 +86,14 @@ reversed = names.sort({(s1:String, s2:String) -> Bool in return s1 > s2 })
 ```
 
 Isso ilustra que as chamadas do método `sort(_:)` permaneceram as mesmas. Um par de parenteses ainda envolvem o argumento do método. Contudo, esse argumento agora é um *inline closure*.
+
+###Deduzindo o tipo a partir do contexto
+
+Devido ao fato de o *closure* de ordenação ser passado como um método, o Swift e capaz de deduzir os tipos de paramêtros do *closure* e o tipo de valor que o *closure* devolve. O étodo `sort(_:)` começa a ser chamado como um *array*  de *strings*, portanto seus argumentos devem ser uma função do tipo `(String, String) -> Bool`. Isso significa que os tipos `(String, String)` e `Bool` não precisam ser escritos como parte da definição expressão de fechamento. Como todos os tipos podem ser deduzidos, a seta de devolução (`->`) e os parênteses envolta dos nomes dos parametros também podem ser omitidos:
+
+```swift
+reversed = names.sort( { s1, s2 in return s1 > s2 } )
+```
+
+Sempre é possível deduzir os tipod dos parâmetros e o tipo de devolução quando passamos um *closure* para a função ou método como uma expressão de fechamento *inline*. Como resultado, você nunca precisara escrever uma *inline closure* em sua forma completa quando o *closure* é usado como um argumento de função ou método. Além do mais, você ainda pode fazer tipos explicitos se desejar, e encorajamos a fazer isso se evitar ambiguidade para os leitores do seu código. No caso do método `sort(_:)`, o propósito do *closure* é claro a partir do fato de que a ordenação está se encarregando do trabalho, e é seguro para o leitor assumir que o *closure* está trabalhando com valores do tipo `String`, porque ele é usado junto da ordenação de um *array* de *strings*. 
+
