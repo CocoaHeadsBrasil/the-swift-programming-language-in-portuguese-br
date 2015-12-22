@@ -65,11 +65,13 @@ class Player {
         coinsInPurse = Bank.vendCoins(coins)
         
     }
+    
     func winCoins(coins: Int) {
     
         coinsInPurse += Bank.vendCoins(coins)
         
     }
+    
     deinit {
     
         Bank.receiveCoins(coinsInPurse)
