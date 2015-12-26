@@ -1,1 +1,3 @@
-# Tipos de coleções
+## Tipos de coleções
+
+### <a name="dictionaries">Dicionários
