@@ -95,5 +95,25 @@ Devido ao fato de o *closure* de ordenação ser passado como um método, o Swif
 reversed = names.sort( { s1, s2 in return s1 > s2 } )
 ```
 
-É sempre possível deduzir os tipos dos parâmetros e o tipo de devolução quando passamos um *closure* para a função ou método como uma expressão de *closure* em linha. Como resultado, você nunca precisará escrever uma *inline closure* em sua forma completa quando o *closure* é usado como um argumento de função ou de método. Além do mais, você ainda pode fazer tipos explicitos se desejar, e encorajamos a faze-lo caso evite ambiguidade para os leitores do seu código. No caso do método `sort(_:)`, o propósito do *closure* é claro a partir do fato de que o objetivo é a ordenação, e é seguro para o leitor assumir que o *closure* está trabalhando com valores do tipo `String`, porque ele é usado para ordenação de um *array* de *strings*. 
+É sempre possível deduzir os tipos dos parâmetros e o tipo de devolução quando passamos um *closure* para a função ou método como uma expressão de *closure* em linha. Como resultado, você nunca precisará escrever uma *inline closure* em sua forma completa quando o *closure* é usado como um argumento de função ou de método. Além do mais, você ainda pode fazer tipos explicitos se desejar, e encorajamos a faze-lo caso evite ambiguidade para os leitores do seu código. No caso do método `sort(_:)`, o propósito do *closure* é claro a partir do fato de que o objetivo é a ordenação, e é seguro para o leitor assumir que o *closure* está trabalhando com valores do tipo `String`, porque ele é usado para ordenação de um *array* de *strings*.
 
+###Devolução Implicita de *Closure* de Expressão Única
+
+*Closures* de expressão única podem devolver, de forma implicita, o resultado de suas expressões únicas através da omissão da palavra-chave `return` de sua declaração, assim como nesta versão do exemplo anterior:
+
+```swift
+    reversed = names.sort({ s1, s2 in s1 > s2 })
+```
+
+Aqui, o tipo da função do argumento do método `sort(_:)` torna claro que um valor `Bool` deverá ser devolvido pelo *closure*. Como o corpo do *closure* contain uma expressão única `( s1 > s2)` que devolve um valor `Bool`, não existe ambiguidade, e a palavra-chave `return` pode ser omitida.
+
+###Nomes curtos para argumentos
+O Swift disponibiliza automaticamente nomes curtos para argumentos em *inline closures*, que podem ser utilizados para se referirem a valores dos argumentos do *closure* através dos nomes `$0`,`$1`, `$2` e assim pordiante.
+
+Se você utilizar esses nomes simplificados de argumentos na sua expressão de *closure*, você poderá omitir a lista de argumento do *closure* da sua definição, e o número e tipo do argumento com nome simplificado serão deduzidos a partir do tipo de função esperada. A palavra-chave `in` pode também ser omitida, porque a expressão do *closure* é feita totalmente em seu corpo:
+
+```swift
+    reversed = names.sort( {$0 > $1} )
+```
+
+Aqui, `$0`, e `$1` referem-se ao primeiro e segundo argumento do *closure*, que são do tipo `String`.
