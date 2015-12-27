@@ -117,3 +117,15 @@ Se você utilizar esses nomes simplificados de argumentos na sua expressão de *
 ```
 
 Aqui, `$0`, e `$1` referem-se ao primeiro e segundo argumento do *closure*, que são do tipo `String`.
+
+###Funções de Operadores
+Existe ainda uma maneira mais simplificada de escrever a expressão de *closure* que vimos acima.
+O tipo `String` do Swift define uma implementação especifica do seu operador de "maior que" (`>`) como uma função que possui dois parametros do tipo `String` e retorna um valor do tipo `Bool`. Que combina exatamente com o tipo de função esperada pelo método `sort(_:)`. Desta forma, você pode simplesmente passar o operador "maior que", e o Swift irá deduzir que você quer usar a implementação específica para *strings*:
+
+```swift
+    reversed = names.sort(>)
+```
+
+Para saber mais sobre funções de operadores, veja [Funções de Operadores](./functions.md#operation_functions).
+
+###***Closures* de fuga** - *Trailing Closures*
