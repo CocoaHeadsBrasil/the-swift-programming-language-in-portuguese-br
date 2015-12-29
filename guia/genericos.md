@@ -1,8 +1,8 @@
 ## Genéricos
 
-_Código genérico_ permite você escrever código flexível, funções reutilizáveis e tipos que podem trabalhar com com qualquer tipo, sujeito a requisitos que você define. Você pode escrever código que evita duplicação e expressa suas intenções de maneira clara e abstraída.
+_Código genérico_ permite você escrever código flexível, funções reutilizáveis e tipos que podem trabalhar com qualquer tipo, sujeito a requisitos que você define. Você pode escrever código que evita duplicação e expressa suas intenções de maneira clara e abstraída.
 
-Genéricos são uma das características mais poderosas em Swift, e muito da biblioteca padrão de Swift é construída com código genérico. De fato, você vem usando genéricos através do _Guia da Linguagem_,  mesmo que nem tenha percebido isso. Por exemplo, os tipos  `Array` e `Dictionary` em Swift são ambos coleções genéricas. Você pode criar um _array_ que mantêm valores `Int` ou um _array_ que mantêm valores `String`, ou até mesmo um _array_ para qualquer tipo que pode ser criado em Swift. Similarmente, você pode criar um dicionário para armazenar valores de qualquer tipo especificado, e não existem limitações sobre qual tipo pode ser.
+Genéricos são uma das características mais poderosas em Swift, e muito da biblioteca padrão de Swift é construída com código genérico. De fato, você vem usando genéricos através do _Guia da Linguagem_,  mesmo que nem tenha percebido isso. Por exemplo, os tipos `Array` e `Dictionary` em Swift são ambos coleções genéricas. Você pode criar um _array_ que mantêm valores `Int` ou um _array_ que mantêm valores `String`, ou até mesmo um _array_ para qualquer tipo que possa ser criado em Swift. Similarmente, você pode criar um dicionário para armazenar valores de qualquer tipo especificado, e não existem limitações sobre qual tipo pode ser.
 
 ## O Problema que genéricos resolve
 
@@ -73,7 +73,7 @@ func swapTwoValues<T>(inout a: T, inout _ b: T)
 
 A versão genérica da função usa um _nome de tipo reservado_ no local do  (chamado `T`, neste caso), ao invés do _verdadeiro_ nome do tipo (tal como `Int`, `String` ou `Double`). O nome de tipo reservado não diz nada sobre o que `T` deve ser, mas ele diz que ambos `a` e `b` devem ser do mesmo tipo `T`, seja lá o que `T` representa. O tipo verdadeiro a ser usado no lugar de `T` será determinado cada vez que a função `swapTwoValues(_:_:)` é chamada.
 
-A outra diferença é que o nome da função genérica (`swapTwoValues(_:_:)`) é seguida pelo nome de tipo reservado (`T`) dentro dos sinais de maior/menor (`<T>`). Isso diz ao Swift que `T` é um nome de tipo reservado dentro da definição da função `swapTwoValues(_:_:)`. Como `T` é um nome de tipo reservado, Swift não procura por um tipo real chamado `T`.
+A outra diferença é que o nome da função genérica (`swapTwoValues(_:_:)`) é seguido pelo nome de tipo reservado (`T`) dentro dos sinais de maior/menor (`<T>`). Isso diz ao Swift que `T` é um nome de tipo reservado dentro da definição da função `swapTwoValues(_:_:)`. Como `T` é um nome de tipo reservado, Swift não procura por um tipo real chamado `T`.
 
 A função `swapTwoValues(_:_:)` pode agora ser chamada da mesma forma que `swapToInts(_:_:)`, exceto que agora pode ser passado para ela dois valores de quaisquer tipo, contanto que ambos os valores sejam do mesmo tipo entre si. Cada vez que `swapTwoValues(_:_:)` é chamada, o tipo `T` é inferido dos tipos dos valores passados para a função.
 
@@ -93,13 +93,13 @@ swapTwoValues(&someString, &anotherString)
 
 > NOTA
 >
-> A função `swapTwoValues(_:_:)` definida acima é inspirada pela função genérica `swap`, que faz parte da biblioteca padrão de Swift, e está automaticamente disponível para você usar em em seus aplicativos. Se você precisa do comportamento de `swapTwoValues(_:_:)` em seu código, use a função `swap(_:_:_)` disponível na biblioteca padrão de Swift, ao invés de usar sua própria implementação.
+> A função `swapTwoValues(_:_:)` definida acima é inspirada pela função genérica `swap`, que faz parte da biblioteca padrão de Swift, e está automaticamente disponível para você usar em seus aplicativos. Se você precisa do comportamento de `swapTwoValues(_:_:)` em seu código, use a função `swap(_:_:_)` disponível na biblioteca padrão de Swift, ao invés de usar sua própria implementação.
 
 ### Tipos de Parâmetros
 
 No exemplo de `swapTwoValues(_:_:)` acima, o nome de tipo reservado `T` é um exemplo de _tipo de parâmetro_. Um tipo de parâmetro especifica e nomeia um tipo reservado, e é escrito imediatamente depois do nome da função, entre um par de sinais de menor e maior. (assim como `<T>`).
 
-Uma vez que você especifique um tipo de parâmetro, , você pode usa-lo para definir os tipos dos parâmetros de uma função (tais como `a` e `b` na função `swapTwoValues(_:_:)`), ou como o valor devolvido por uma função, ou como anotação do tipo dentro do corpo de uma função. Em cada caso, o tipo de parâmetro é substituído com o tipo _verdadeiro_ sempre que a função é chamada. (no exemplo acima de `swapTwoValues(_:_:)`, `T` foi substituído com `Int` na primeira vez que a função foi chamada, e foi substituído por `String` na segunda vez que foi chamado.)
+Uma vez que você especifique um tipo de parâmetro, você pode usa-lo para definir os tipos dos parâmetros de uma função (tais como `a` e `b` na função `swapTwoValues(_:_:)`), ou como o valor devolvido por uma função, ou como anotação do tipo dentro do corpo de uma função. Em cada caso, o tipo de parâmetro é substituído com o tipo _verdadeiro_ sempre que a função é chamada. (No exemplo acima de `swapTwoValues(_:_:)`, `T` foi substituído com `Int` na primeira vez que a função foi chamada, e foi substituído por `String` na segunda vez que foi chamado.)
 
 ### Nomeando Tipos de Parâmetro
 
@@ -112,13 +112,13 @@ Na maioria dos casos, tipos de parâmetro tem nomes descritivos, como `Key` e `V
 
 ### Tipos genéricos
 
-Em adição as funções, Swift permite também que você defina seus próprios _tipos genéricos_. Estes são classes, estruturas e enumerações personalizadas que podem trabalhar com _qualquer_ tipo, de modo similar à `Array` e `Dictionary`.
+Em adição às funções, Swift permite também que você defina seus próprios _tipos genéricos_. Estes são classes, estruturas e enumerações personalizadas que podem trabalhar com _qualquer_ tipo, de modo similar a `Array` e `Dictionary`.
 
-Este seção mostra mostra como você pode escrever um tipo de coleção genérica chamada `Stack` (Pilha). A pilha é um conjunto ordenado de valores, similares a um `Array`, mas com um conjunto mais restrito de operações que o tipo `Array` de Swift. Um _Array_ permite novos itens serem inseridos ou removidos de qualquer posição. Uma pilha, porém, permite a inserção apensa no fim da coleção (conhecido como _empurrar_ (do inglês _push_) um novo valor para a pilha). De forma similar, uma pilha só permite remover itens do fim da coleção (conhecido como _estourar_ - do inglês _popping_ - um valor da pilha).
+Esta seção mostra como você pode escrever um tipo de coleção genérica chamada `Stack` (pilha). A pilha é um conjunto ordenado de valores, similares a um `Array`, mas com um conjunto mais restrito de operações que o tipo `Array` de Swift. Um _Array_ permite novos itens serem inseridos ou removidos de qualquer posição. Uma pilha, porém, permite a inserção apensa no fim da coleção (conhecido como _empurrar_ (do inglês _push_) um novo valor para a pilha). De forma similar, uma pilha só permite remover itens do fim da coleção (conhecido como _estourar_ - do inglês _popping_ - um valor da pilha).
 
 > NOTA
 >
-> O conceito de pilha é usado pela classe `UINavigationContorller` para modelar as `view controllers` na sua hierarquia de navegação. Você chama a o método `pushViewController(_:animated:)` da classe `UINavigationController` para adicionar (ou empurrar) uma `view controller` na pilha de navegação, e o método `popViewContorllerAnimated(_:)` para remover uma `view controller` da pilha de navegação. Uma pilha é um modelo de coleção útil sempre que você tem uma abordagem "ultimo a entrar, primeiro a sair" rigorosa para gerenciar uma coleção.
+> O conceito de pilha é usado pela classe `UINavigationController` para modelar as `view controllers` na sua hierarquia de navegação. Você chama o método `pushViewController(_:animated:)` da classe `UINavigationController` para adicionar (ou empurrar) uma `view controller` na pilha de navegação, e o método `popViewContorllerAnimated(_:)` para remover uma `view controller` da pilha de navegação. Uma pilha é um modelo de coleção útil sempre que você tem uma abordagem "ultimo a entrar, primeiro a sair" rigorosa para gerenciar uma coleção.
 
 A ilustração abaixo mostra o comportamento de empurrar/estourar de uma pilha.
 
@@ -128,11 +128,11 @@ A ilustração abaixo mostra o comportamento de empurrar/estourar de uma pilha.
 1. Existem atualmente três valores na Pilha.
 2. Um quarto valor é "empurrado" no topo da pilha.
 3. A pilha agora armazena quatro valores, com o mais recente no topo.
-4. O item no topo da pilha é removido, ou "estourado" - do inglês _popped_.
+4. O item no topo da pilha é removido, ou "estourado".
 5. Depois de estourar um valor, a pilha novamente armazena três valores.
 
 ```swift
-struct Intstack {
+struct IntStack {
     var items = [Int]()
     mutating func push(item: Int) {
         items.append(item)
@@ -144,7 +144,7 @@ struct Intstack {
 }
 ```
 
-Esta estrutura usa uma propriedade `Array` chamada `items` para armazenar os valores da pila. `Stack` provê dois métodos, `push` e `pop`, para empurrar e estourar valores para e da pilha. Estes métodos são marcados como `mutating`, porque eles precisam modificar (ou _mutar_) a propriedade `items` da estrutura.
+Esta estrutura usa uma propriedade `Array` chamada `items` para armazenar os valores da pilha. `Stack` provê dois métodos, `push` e `pop`, para empurrar e estourar valores para e da pilha. Estes métodos são marcados como `mutating`, porque eles precisam modificar (ou _mutar_) a propriedade `items` da estrutura.
 
 O tipo `IntStack` mostrado acima pode ser usado apenas com valores `Int`. Seria muito mais útil definir uma classe `Stack` genérica, que pode gerenciar uma pilha de _qualquer_ tipo.
 
@@ -184,7 +184,7 @@ stackOfStrings.push("cuatro")
 // a pilha contêm agora 4 variáveis String
 ```
 
-Segue como `stackOfStrings` parece após empurrar esses quatro valores na pilha:
+Segue como `stackOfStrings` fica após empurrar esses quatro valores na pilha:
 
 
 <!-- TODO: imagens -->
@@ -193,17 +193,17 @@ Estourar um valor da pilha devolve e remove o valor do topo, no caso, _"cuatro"_
 
 ```swift
 let fromTheTop = stackOfStrings.pop
-//fromTheTop é igual a "cuatro", e a pilha agora contêm 3 valores String
+//fromTheTop é igual a "cuatro", e a pilha agora contém 3 valores String
 ```
 
-Aqui está como a pilha se parece após estourar o valor do topo:
+Aqui está como a pilha fica após estourar o valor do topo:
 
 
 <!-- ibagens hamilton -->
 
 ### Estendendo um tipo genérico
 
-Quando você estende um tipo genérico, você não provê uma lista de tipos de parâmetros como parte da definição da extensão. Ao invés disso, a lista de tipos de de parâmetros da definição _original_ do tipo está disponível dentro do corpo da extensão, e os nomes dos tipos de parâmetros do tipo original são usados para referenciar os parâmetros da definição original.
+Quando você estende um tipo genérico, você não provê uma lista de tipos de parâmetros como parte da definição da extensão. Ao invés disso, a lista de tipos de parâmetros da definição _original_ do tipo está disponível dentro do corpo da extensão, e os nomes dos tipos de parâmetros do tipo original são usados para referenciar os parâmetros da definição original.
 
 O exemplo seguinte estende a pilha genérica `Stack` para adicionar uma propriedade computada apenas para leitura chamada `topItem`, que devolve o item do topo, sem que seja necessário estourar o valor da pilha:
 
@@ -220,7 +220,7 @@ A propriedade `topItem` devolve um valor opcional do tipo `Element`, Se a pilha 
 
 Note que esta extensão não define uma lista de tipos de parâmetro. Ao invés disso, `Element`, o nome original do tipo de parâmetro existente no tipo `Stack`, é usado dentro da extensão para indicar o tipo da propriedade computada `topItem`.
 
-A propriedade computada `topItem` pode agora ser usada com qualquer instância de `Stack` para acessar e pesquisar seu item do topo sem remove-lo:
+A propriedade computada `topItem` pode agora ser usada com qualquer instância de `Stack` para acessar e pesquisar seu item do topo sem removê-lo:
 
 ```swift
 if let topItem = stackOfStrings.topItem {
@@ -232,11 +232,11 @@ if let topItem = stackOfStrings.topItem {
 
 A função `swapTwoValues(_:_:)` e o tipo `Stack` podem trabalhar com qualquer tipo. Apesar disso, algumas vezes é útil obrigar algumas _restrições de tipo_ em tipos que podem ser usados com funções genéricas e tipos genéricos. Restrições de tipo especificam que um tipo de parâmetro deve herdar de uma classe específica, ou obedecer à um protocolo específico ou uma composição de protocolos.
 
-Por exemplo, o tipo `Dictionary` em Swift coloca uma limitação nos tipos que podem ser usados como chaves do dicionário. Como descrito em [Dicionários](./tipos_colecoes.md#dictionaries), o tipo da chave de um dicionário deve ser <!--Hashable -->, isto é, deve prover um método para se fazer unicamente representável. Dicionários precisam que suas chaves sejam unicamente representáveis  para que possam verificar se ela já contém um valor para uma determinada chave. Sem este requerimento, `Dictionary` não poderia dizer se precisa inserir ou atualizar o valor para uma determinada chave, nem poderia localizar o valor para uma determinada uma chave que já está no dicionário.
+Por exemplo, o tipo `Dictionary` em Swift coloca uma limitação nos tipos que podem ser usados como chaves do dicionário. Como descrito em [Dicionários](./tipos_colecoes.md#dictionaries), o tipo da chave de um dicionário deve ser <!--TODO: Hashable?-->_ Hashable_, isto é, deve prover um método para se fazer unicamente representável. Dicionários precisam que suas chaves sejam unicamente representáveis  para que possam verificar se ela já contém um valor para uma determinada chave. Sem esta exigência, `Dictionary` não poderia dizer se precisa inserir ou atualizar o valor para uma determinada chave, nem poderia localizar o valor para uma determinada uma chave que já está no dicionário.
 
 Este requisito é forçado por uma restrição de tipo no tipo da chave para o `Dictionary`, que especifica que a chave deve obedecer ao protocolo `Hashable`, um protocolo especial definido na biblioteca padrão de Swift. Todos os tipos básicos de Swift (tais como `String`, `Int`, `Double` e `Bool`) seguem este protocolo por padrão.
 
-Você pode definir suas próprias restrições de tipo quando criando tipos genéricos personalizados, e estas restrições proveem muito mais poder para a programação genérica. Conceitos abstratos como `Hashable` caracterizam tipos em termos de suas características conceituais, ao invés de seu tipo explicito.
+Você pode definir suas próprias restrições de tipo quando criando tipos genéricos personalizados, e estas restrições proveem muito mais poder para a programação genérica. Conceitos abstratos como `Hashable` caracterizam tipos em termos de suas características conceituais, ao invés de seu tipo explícito.
 
 ### Sintaxe de Restrição de Tipo
 
@@ -255,7 +255,7 @@ A função hipotética acima tem dois tipos de parâmetros. O primeiro, `T`, tem
 Aqui está uma função não-genérica chamada `findStringIndex`, para a qual é dado um valor `String` para encontrar e um `Array` de valores `String` no qual desejamos procurar. A função `findStringIndex(_:_:)` devolve um valor opcional `Int`, que será o índice da primeira ocorrência da `String` buscada dentro do `Array`, ou `nil` caso não encontrado:
 
 ```swift
-func findStringIndex(array: [String], _ valueToFind: [String) -> Int? {
+func findStringIndex(array: [String], _ valueToFind: String) -> Int? {
 	for (índex, value) in array.enumerate() {
 		if value == valueToFind {
 			return index
@@ -278,7 +278,7 @@ if let foundIndex = findStringIndex(strings, "lhama") {
 
 Apesar disso, o princípio de encontrar o índice de um valor em um `Array` não é útil apenas para _strings_. Você pode escrever a mesma funcionalidade com uma função genérica chamada `findIndex`, ao substituir qualquer menção à _strings_ com valores de algum tipo `T`.
 
-Segue como você pode esperar que a versão genérica de `findStringIndex`, chamada `findString`, seja escrita. Note que o tipo devolvido nesta função continua sendo `Int?`, poque a função devolve um índice numérico opcional, não um valor opcional do _array_. Esteja avisado, entretanto - esta função não compila por motivos que serão explicados depois do exemplo:
+Segue como você pode esperar que a versão genérica de `findStringIndex`, chamada `findString`, seja escrita. Note que o tipo devolvido nesta função continua sendo `Int?`, porque a função devolve um índice numérico opcional, não um valor opcional do _array_. Esteja avisado, entretanto - esta função não compila por motivos que serão explicados depois do exemplo:
 
 ```swift
 func findIndex<T>(array: [T], _ valueToFind: T) -> Int? {
@@ -322,3 +322,97 @@ let stringIndex = findIndex(["Mike", "Malcolm", "Andrea"], "Andrea")
 // stringIndex é um Int opcional contendo valor 2
 ```
 
+### Tipos Associados
+
+Quando definido um protocolo, as vezes é util declarar um ou mais _tipos associados_ como parte da definição do protocolo. Um tipo associado dá um nome reservado (ou _pseudonimo_) para um tipo que será usado como parte do protocolo. O tipo verdadeiro a ser usado para quele nome de tipo reservado não é específicado até o protocolo ser adotado. Tipos associados são especificados com a palavra reservada `typealias`.
+
+#### Tipos Associados em ação
+
+Aqui está um exemplo de protocolo chamado `Container`, que declara um tipo associado chamado `ItemType`:
+
+
+```swift
+protocol Container {
+	typealias ItemType
+	mutating func append(item: ItemType)
+	var count: Int { get }
+	subscript(i: Int) -> ItemType {get }
+}
+```
+
+O protocolo `Container` define três capacidades necessárias que qualquer container deve fornecer:
+
+* Deve ser possível adicionar um novo item ao container com o método `append(_:)`.
+* Deve ser possível acessar a contagem de itens do container através de uma propriedade `count` que devolve um valor inteiro.
+* Deve ser possível obter cada item dentro do container com um indice que recebe um valor `Int`
+
+Este protocolo n˜åo especifíca como os itens dentro do container devem ser armazenados ou que tipo eles devem ser. O protocolo apenas específica os três pedaços de funcionalidade que qualquer tipo deve prover para ser considerado um `Container`. Um tipo obedecendo pode prover funcionalidades adicionais, contanto que satisfaça esses três requisitos.
+
+Qualquer tipo que obedeça ao protocolo `Container` deve ser apto a específicar o tipo de valir que aemazena. Especificamente, ele deve assegurar que apenas items do tipo certo são adicionados ao container, e deve ser claro sobre os tipos de items devolvidos por seu índice.
+
+Para definir estes requisitos, o protocolo `Container` precisa de uma forma de referenciar o tipo de elemento que o container irá armazenar, sem saber que tipo eke é para um container específico. O prorocolo `Container` precisa específicar que qualquer valor passado para o método `append(_:)` deve ter o mesmo tipo que o tipo de elemento do container, e que o valor devolvido pelo índice de container será do mesmo tipo que o tipo de elemento do container.
+
+Para alcançar este objectivo, o protocolo `Container` declara um tipo associado chamado `ItemType`, escrito na forma `typealias ItemType`. O protocolo não define o que `ItemType` é um pseudonimo - esta informação é deixada para ser fornecida por qualquer tipo adotando o protocolo. No entanto, o pseudonimom`ItemType` provê uma forma de referenciar o tipo de itens de um `Container`, e definir um tipo para ser usado com o método `append(_:)` e com o índice, para assegurar que o comportamente esperado de qualquer `Container` é garantido.
+
+Aqui está uma versão do tipo não genérico `IntStack` anterior, adaptado para obedecer ao protocolo `Container`:
+
+```swift
+struct IntStack: Container {
+    // implementação original de IntStack
+    var items = [Int]()
+    mutating func push(item: Int) {
+        items.append(item)
+    }
+    mutating func pop() -> Int {
+        return items.removeLast()
+    }
+    // conformidade com o protocolo Container
+    typealias ItemType = Int
+    mutating func append(item: Int) {
+        self.push(item)
+    }
+    var count: Int {
+        return items.count
+    }
+    subscript(i: Int) -> Int {
+        return items[i]
+    }
+}
+```
+
+
+
+```
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+```
