@@ -40,5 +40,7 @@ Caso queira visualizar como está ficando o texto, basta utilizar o Gitbook. Par
 
 ### Licença
 
-*TODO*: Adicionar licença apropriada
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">The Swift Programming Language - Tradução Português (BR)</span> de <a xmlns:cc="http://creativecommons.org/ns#" href="www.cocoaheads.com.br" property="cc:attributionName" rel="cc:attributionURL">CocoaHeads Brasil</a> está licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons - Atribuição-CompartilhaIgual 4.0 Internacional</a>.<br />Baseado no trabalho disponível em <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br" rel="dct:source">https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br</a>.
+
+
 
