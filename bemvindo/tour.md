@@ -99,11 +99,11 @@ Utilize `if` e `switch` para criar condições e use `for-in`, `for`, `while` e 
 let individualScores = [75, 43, 103, 87, 12]
 var teamScore = 0
 for score in individualScores {
-	if score > 50 {
-		teamScore += 3
-	} else {
-		teamScore += 1
-	}
+    if score > 50 {
+        teamScore += 3
+    } else {
+        teamScore += 1
+    }
 }
 print(teamScore)
 ```
@@ -119,7 +119,7 @@ print(optionalString == nil)
 var optionalName: String? = "John Appleseed"
 var greeting = "Hello!"
 if let name = optionalName {
-	greeting = "Hello, \(name)"
+    greeting = "Hello, \(name)"
 }
 ```
 
@@ -143,20 +143,19 @@ As instruções `switch` aceitam qualquer tipo de dado e uma variedade ampla de 
 let vegetable = "red pepper"
 switch vegetable {
 case "celery":
-	print("Adicione umas passas e faça um 'Ants on a Log'")
+    print("Adicione umas passas e faça um 'Ants on a Log'")
 case "cucumber", "watercress":
-	print("Isso daria um bom sanduíche")
+    print("Isso daria um bom sanduíche")
 case let x where x.hasSuffix("pepper"):
-	print("É um \(x) apimentado?")
+    print("É um \(x) apimentado?")
 default:
-	print("Tudo fica saboroso numa sopa.")
+    print("Tudo fica saboroso numa sopa.")
 }
 ```
 
 >EXPERIMENTO
 >
 >Tente remover o caso `default`. Que erro você recebe?
-
 
 Repare como o `let` pode ser usado dentro de um padrão para atribuir à uma constante o valor que coincidiu com ele.
 
@@ -166,17 +165,17 @@ Você usa `for-in` para iterar sobre itens de um dicionário, fornecendo um par 
 
 ```swift
 let interestingNumbers = [
-	"Prime": [2, 3, 5, 7, 11, 13],
-	"Fibonacci": [1, 1, 2, 3, 5, 8],
-	"Square": [1, 4, 9, 16, 25]
+    "Prime": [2, 3, 5, 7, 11, 13],
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    "Square": [1, 4, 9, 16, 25]
 ]
 var largest = 0
 for (kind, numbers) in interestingNumbers {
-	for number in numbers {
-		if number > largest {
-			largest = number
-		}
-	}
+    for number in numbers {
+        if number > largest {
+            largest = number
+        }
+    }
 }
 print(largest)
 ```
@@ -191,13 +190,13 @@ Utilize `while` para repetir um bloco de código até que uma determinada condi�
 ```swift
 var n = 2
 while n < 100 {
-	n = n * 2
+    n = n * 2
 }
 print(n)
 
 var m = 2
 repeat {
-	m = m * 2
+    m = m * 2
 } while m < 100
 print(m)
 ```
@@ -207,13 +206,13 @@ Você pode manter um índice em um laço ou usando `..<` para fazer uma série d
 ```swift
 var firstForLoop = 0
 for i in 0..<4 {
-	firstForLoop += i
+    firstForLoop += i
 }
 print(firstForLoop)
 
 var secondForLoop = 0
 for var i = 0; i < 4; ++i {
-	secondForLoop += i
+    secondForLoop += i
 }
 print(secondForLoop)
 ```
@@ -222,3 +221,86 @@ Utilize `..<` para criar uma série que ignora o valor mais alto e `...` para cr
 
 ### Funções e Closures
 
+Utilize `func` para declarar uma função. Chame uma função através de seu nome seguido de uma lista de argumentos entre parênteses. Use `->` para separar os nomes e tipos dos parâmetros do tipo de retorno da função.
+
+```swift
+func greet(name: String, day: String) -> String {
+    return "Hello \(name), today is \(day)."
+}
+greet("Bob", day: "Tuesday")
+```
+
+>EXPERIMENTO
+>
+>Remova o parâmetro `day`. Adicione um parâmetro para incluir o prato do dia na saudação.
+
+Utilize uma tupla para criar um valor composto - por exemplo, para devolver múltiplos valores de uma função. Os elementos de uma tupla podem ser referenciados por um nome ou por um número.
+
+```swift
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    
+    return (min, max, sum)
+}
+let statistics = calculateStatistics([5, 3, 100, 3, 9])
+print(statistics.sum)
+print(statistics.2)
+```
+
+Funções também podem receber um número variável de argumentos, sendo coletados num _array_.
+
+```swift
+func sumOf(numbers: Int...) -> {
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+    return sum
+}
+sumOf()
+sumOf(42, 597, 12)
+```
+
+>EXPERIMENTO
+>
+>Escreva uma função que calcula a média dos valores de seus argumentos.
+
+Funções podem ser aninhadas. Funções aninhadas têm acesso às variáveis declaradas na função mais de fora. Você pode usar funções aninhadas para organizar o código de uma função que seja grande ou complexa.
+
+```swift
+func returnFifteen() -> Int {
+    var y = 10
+    func add() {
+        y += 5
+    }
+    add()
+    return y
+}
+returnFifteen()
+```
+
+Funções são do tipo primeira classe. Isto significa que uma função pode devolver outra função como seu valor.
+
+```swift
+func makeIncrementer() -> ((Int) -> (Int)) {
+    func addOne(number: Int) -> Int {
+        return 1 + number
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+increment(7)
+```
+
+Uma função pode receber uma outra função como um de seus argumentos.
