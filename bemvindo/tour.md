@@ -93,7 +93,7 @@ occupations = [:]
 
 ### Fluxo de Controle
 
-Utilize `if` e `switch` para criar condições e use `for-in`, `for`, `while` e `repeat-while` para criar _loops_. Parênteses ao redor da condição ou da variável de _loop_ são opcionais. Chaves ao redor do bloco de código são obrigatórias.
+Utilize `if` e `switch` para criar condições e use `for-in`, `for`, `while` e `repeat-while` para criar laços de repetição. Parênteses ao redor da condição ou da variável de laço são opcionais. Chaves ao redor do bloco de código são obrigatórias.
 
 ```swift
 let individualScores = [75, 43, 103, 87, 12]
@@ -186,7 +186,7 @@ print(largest)
 >Adicione outra variável para armazenar que tipo de número foi o maiorm, bem como que número foi esse.
 
 
-Utilize `while` para repetir um bloco de código até que uma determinada condição seja alterada. A condição do _loop_ pode estar no final também, garantindo que o _loop_ será executado ao menos uma vez.
+Utilize `while` para repetir um bloco de código até que uma determinada condição seja alterada. A condição do laço de repetição pode estar no final também, garantindo que o laço será executado ao menos uma vez.
 
 ```swift
 var n = 2
@@ -202,7 +202,7 @@ repeat {
 print(m)
 ```
 
-Você pode manter um índice em um _loop_ ou usando `..<` para fazer uma série de índices ou escrevendo uma inicialização explícita, condição e incremento. Estes dois _loops_ fazem a mesma coisa:
+Você pode manter um índice em um laço ou usando `..<` para fazer uma série de índices ou escrevendo uma inicialização explícita, condição e incremento. Estes dois laços fazem a mesma coisa:
 
 ```swift
 var firstForLoop = 0
