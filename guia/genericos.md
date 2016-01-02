@@ -97,13 +97,13 @@ swapTwoValues(&someString, &anotherString)
 
 ### Tipos de Parâmetros
 
-No exemplo de `swapTwoValues(_:_:)` acima, o nome de tipo reservado `T` é um exemplo de _tipo de parâmetro_. Um tipo de parâmetro especifica e nomeia um tipo reservado, e é escrito imediatamente depois do nome da função, entre um par de sinais de menor e maior. (assim como `<T>`).
+No exemplo de `swapTwoValues(_:_:)` acima, o nome de tipo reservado `T` é um exemplo de _parâmetro de tipo_. Um parâmetro de tipo especifica e nomeia um tipo reservado, e é escrito imediatamente depois do nome da função, entre um par de sinais de menor e maior. (assim como `<T>`).
 
-Uma vez que você especifique um tipo de parâmetro, você pode usa-lo para definir os tipos dos parâmetros de uma função (tais como `a` e `b` na função `swapTwoValues(_:_:)`), ou como o valor devolvido por uma função, ou como anotação do tipo dentro do corpo de uma função. Em cada caso, o tipo de parâmetro é substituído com o tipo _verdadeiro_ sempre que a função é chamada. (No exemplo acima de `swapTwoValues(_:_:)`, `T` foi substituído com `Int` na primeira vez que a função foi chamada, e foi substituído por `String` na segunda vez que foi chamado.)
+Uma vez que você especifique um parâmetro de tipo, você pode usa-lo para definir os tipos dos parâmetros de uma função (tais como `a` e `b` na função `swapTwoValues(_:_:)`), ou como o valor devolvido por uma função, ou como anotação do tipo dentro do corpo de uma função. Em cada caso, o parâmetro de tipo é substituído com o tipo _verdadeiro_ sempre que a função é chamada. (No exemplo acima de `swapTwoValues(_:_:)`, `T` foi substituído com `Int` na primeira vez que a função foi chamada, e foi substituído por `String` na segunda vez que foi chamado.)
 
 ### Nomeando Tipos de Parâmetro
 
-Na maioria dos casos, tipos de parâmetro tem nomes descritivos, como `Key` e `Value` em `Dictionary<Key, Value>` e `Element` em `Array<Element>`, o que diz ao leitor sobre o relacionamento entre o tipo de parâmetro e o tipo genérico ou função na qual é usada. Porém, quando não existe um relacionamento significativo entre elas, é tradicional nomeá-los usando simples letras como `T`, `U` e `V`, tal como `T` na função `swapTwoValues(_:_:)` acima.
+Na maioria dos casos, parâmetros de tipo tem nomes descritivos, como `Key` e `Value` em `Dictionary<Key, Value>` e `Element` em `Array<Element>`, o que diz ao leitor sobre o relacionamento entre o parâmetro de tipo e o tipo genérico ou função na qual é usada. Porém, quando não existe um relacionamento significativo entre elas, é tradicional nomeá-los usando simples letras como `T`, `U` e `V`, tal como `T` na função `swapTwoValues(_:_:)` acima.
 
 > NOTA
 >
@@ -163,7 +163,7 @@ struck Stack<Element> {
 }
 ```
 
-Note como a versão genérica de `Stack` é essencialmente a mesma que a versão não genérica, mas com o tipo de parâmetro chamado `Element` ao invés do tipo verdadeiro `Int`. Este tipo de parâmetro é escrito dentro de um  par de sinais de maior/menor (`<Element>`) imediatamente depois do nome da estrutura.
+Note como a versão genérica de `Stack` é essencialmente a mesma que a versão não genérica, mas com o parâmetro de tipo chamado `Element` ao invés do tipo verdadeiro `Int`. Este parâmetro de tipo é escrito dentro de um  par de sinais de maior/menor (`<Element>`) imediatamente depois do nome da estrutura.
 
 `Element` define um nome de tipo reservado para "algum tipo `Element`" que será provido posteriormente. Este tipo futuro pode ser referenciado como `Element` em qualquer parte da definição da estrutura. Neste caso, `Element` é usado como um tipo reservado em três lugares:
 
@@ -203,7 +203,7 @@ Aqui está como a pilha fica após estourar o valor do topo:
 
 ### Estendendo um tipo genérico
 
-Quando você estende um tipo genérico, você não provê uma lista de tipos de parâmetros como parte da definição da extensão. Ao invés disso, a lista de tipos de parâmetros da definição _original_ do tipo está disponível dentro do corpo da extensão, e os nomes dos tipos de parâmetros do tipo original são usados para referenciar os parâmetros da definição original.
+Quando você estende um tipo genérico, você não provê uma lista de parâmetros de tipo como parte da definição da extensão. Ao invés disso, a lista de parâmetros de tipo da definição _original_ do tipo está disponível dentro do corpo da extensão, e os nomes dos parâmetros de tipo do tipo original são usados para referenciar os parâmetros da definição original.
 
 O exemplo seguinte estende a pilha genérica `Stack` para adicionar uma propriedade computada apenas para leitura chamada `topItem`, que devolve o item do topo, sem que seja necessário estourar o valor da pilha:
 
@@ -218,7 +218,7 @@ extension Stack P
 
 A propriedade `topItem` devolve um valor opcional do tipo `Element`, Se a pilha está vazia, `topItem` devolve `nil`; se a pilha não está vazia, `topItem` devolve o item final da propriedade `items`.
 
-Note que esta extensão não define uma lista de tipos de parâmetro. Ao invés disso, `Element`, o nome original do tipo de parâmetro existente no tipo `Stack`, é usado dentro da extensão para indicar o tipo da propriedade computada `topItem`.
+Note que esta extensão não define uma lista de parâmetros de tipo. Ao invés disso, `Element`, o nome original do parâmetro de tipo existente no tipo `Stack`, é usado dentro da extensão para indicar o tipo da propriedade computada `topItem`.
 
 A propriedade computada `topItem` pode agora ser usada com qualquer instância de `Stack` para acessar e pesquisar seu item do topo sem removê-lo:
 
@@ -228,9 +228,9 @@ if let topItem = stackOfStrings.topItem {
 }
 ```
 
-### Restrições de Tipo
+### <a name="TypeConstraints">Restrições de Tipo
 
-A função `swapTwoValues(_:_:)` e o tipo `Stack` podem trabalhar com qualquer tipo. Apesar disso, algumas vezes é útil obrigar algumas _restrições de tipo_ em tipos que podem ser usados com funções genéricas e tipos genéricos. Restrições de tipo especificam que um tipo de parâmetro deve herdar de uma classe específica, ou obedecer à um protocolo específico ou uma composição de protocolos.
+A função `swapTwoValues(_:_:)` e o tipo `Stack` podem trabalhar com qualquer tipo. Apesar disso, algumas vezes é útil obrigar algumas _restrições de tipo_ em tipos que podem ser usados com funções genéricas e tipos genéricos. Restrições de tipo especificam que um parâmetro de tipo deve herdar de uma classe específica, ou obedecer à um protocolo específico ou uma composição de protocolos.
 
 Por exemplo, o tipo `Dictionary` em Swift coloca uma limitação nos tipos que podem ser usados como chaves do dicionário. Como descrito em [Dicionários](./tipos_colecoes.md#dictionaries), o tipo da chave de um dicionário deve ser <!--TODO: Hashable?-->_ Hashable_, isto é, deve prover um método para se fazer unicamente representável. Dicionários precisam que suas chaves sejam unicamente representáveis  para que possam verificar se ela já contém um valor para uma determinada chave. Sem esta exigência, `Dictionary` não poderia dizer se precisa inserir ou atualizar o valor para uma determinada chave, nem poderia localizar o valor para uma determinada uma chave que já está no dicionário.
 
@@ -238,9 +238,9 @@ Este requisito é forçado por uma restrição de tipo no tipo da chave para o `
 
 Você pode definir suas próprias restrições de tipo quando criando tipos genéricos personalizados, e estas restrições proveem muito mais poder para a programação genérica. Conceitos abstratos como `Hashable` caracterizam tipos em termos de suas características conceituais, ao invés de seu tipo explícito.
 
-### Sintaxe de Restrição de Tipo
+#### Sintaxe de Restrição de Tipo
 
-Você escreve restrições de tipo ao colocar uma única restrição de classe ou protocolo depois do nome do tipo de parâmetro, separado pelo sinal de dois pontos, como parte da lista de tipos de parâmetro. A sintaxe básica para as restrições de tipo em uma função genérica é mostrada abaixo (apesar da sintaxe ser a mesma para tipos genéricos):
+Você escreve restrições de tipo ao colocar uma única restrição de classe ou protocolo depois do nome do parâmetro de tipo, separado pelo sinal de dois pontos, como parte da lista de parâmetros de tipo. A sintaxe básica para as restrições de tipo em uma função genérica é mostrada abaixo (apesar da sintaxe ser a mesma para tipos genéricos):
 
 ```swift
 func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
@@ -248,7 +248,7 @@ func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
 }
 ```
 
-A função hipotética acima tem dois tipos de parâmetros. O primeiro, `T`, tem a restrição de tipo que requer `T` ser subclasse de `SomeClass`. O segundo tipo de parâmetro, `U`, tem a restrição que requer que `U` obedeça ao protocolo `SomeProtocol`.
+A função hipotética acima tem dois parâmetros de tipo. O primeiro, `T`, tem a restrição de tipo que requer `T` ser subclasse de `SomeClass`. O segundo parâmetro de tipo, `U`, tem a restrição que requer que `U` obedeça ao protocolo `SomeProtocol`.
 
 ### Restrições de Tipo em Ação
 
@@ -310,7 +310,7 @@ func findIndex<T: Equatable>(array: [T], _ valueToFind: T) -> Int? {
 }
 ```
 
-O único tipo de parâmetro para `findIndex` é escrito como `T: Equatable`, que significa "qualquer tipo `T` que obedeça ao protocolo `Equatable`".
+O único parâmetro de tipo para `findIndex` é escrito como `T: Equatable`, que significa "qualquer tipo `T` que obedeça ao protocolo `Equatable`".
 
 A função `findIndex(_:_:)` agora compila com sucesso e pode ser usada com qualquer tipo `Equatable`, tal como `Double` ou `String`.
 
@@ -324,7 +324,7 @@ let stringIndex = findIndex(["Mike", "Malcolm", "Andrea"], "Andrea")
 
 ### Tipos Associados
 
-Quando definido um protocolo, as vezes é util declarar um ou mais _tipos associados_ como parte da definição do protocolo. Um tipo associado dá um nome reservado (ou _pseudonimo_) para um tipo que será usado como parte do protocolo. O tipo verdadeiro a ser usado para quele nome de tipo reservado não é específicado até o protocolo ser adotado. Tipos associados são especificados com a palavra reservada `typealias`.
+Quando definido um protocolo, as vezes é útil declarar um ou mais _tipos associados_ como parte da definição do protocolo. Um tipo associado dá um nome reservado (ou _pseudônimo_) para um tipo que será usado como parte do protocolo. O tipo verdadeiro a ser usado para quele nome de tipo reservado não é especificado até o protocolo ser adotado. Tipos associados são especificados com a palavra reservada `typealias`.
 
 #### Tipos Associados em ação
 
@@ -340,19 +340,19 @@ protocol Container {
 }
 ```
 
-O protocolo `Container` define três capacidades necessárias que qualquer container deve fornecer:
+O protocolo `Container` define três capacidades necessárias que qualquer contêiner deve fornecer:
 
-* Deve ser possível adicionar um novo item ao container com o método `append(_:)`.
-* Deve ser possível acessar a contagem de itens do container através de uma propriedade `count` que devolve um valor inteiro.
-* Deve ser possível obter cada item dentro do container com um indice que recebe um valor `Int`
+* Deve ser possível adicionar um novo item ao contêiner com o método `append(_:)`.
+* Deve ser possível acessar a contagem de itens do contêiner através de uma propriedade `count` que devolve um valor inteiro.
+* Deve ser possível obter cada item dentro do contêiner com um índice que recebe um valor `Int`
 
-Este protocolo n˜åo especifíca como os itens dentro do container devem ser armazenados ou que tipo eles devem ser. O protocolo apenas específica os três pedaços de funcionalidade que qualquer tipo deve prover para ser considerado um `Container`. Um tipo obedecendo pode prover funcionalidades adicionais, contanto que satisfaça esses três requisitos.
+Este protocolo não especifica como os itens dentro do contêiner devem ser armazenados ou que tipo eles devem ser. O protocolo apenas específica os três pedaços de funcionalidade que qualquer tipo deve prover para ser considerado um `Container`. Um tipo obedecendo pode prover funcionalidades adicionais, contanto que satisfaça esses três requisitos.
 
-Qualquer tipo que obedeça ao protocolo `Container` deve ser apto a específicar o tipo de valir que aemazena. Especificamente, ele deve assegurar que apenas items do tipo certo são adicionados ao container, e deve ser claro sobre os tipos de items devolvidos por seu índice.
+Qualquer tipo que obedeça ao protocolo `Container` deve ser apto a especificar o tipo de valor que armazena. Especificamente, ele deve assegurar que apenas items do tipo certo são adicionados ao contêiner, e deve ser claro sobre os tipos de items devolvidos por seu índice.
 
-Para definir estes requisitos, o protocolo `Container` precisa de uma forma de referenciar o tipo de elemento que o container irá armazenar, sem saber que tipo eke é para um container específico. O prorocolo `Container` precisa específicar que qualquer valor passado para o método `append(_:)` deve ter o mesmo tipo que o tipo de elemento do container, e que o valor devolvido pelo índice de container será do mesmo tipo que o tipo de elemento do container.
+Para definir estes requisitos, o protocolo `Container` precisa de uma forma de referenciar o tipo de elemento que o contêiner irá armazenar, sem saber que tipo ele é para um contêiner específico. O protocolo `Container` precisa especificar que qualquer valor passado para o método `append(_:)` deve ter o mesmo tipo que o tipo de elemento do contêiner, e que o valor devolvido pelo índice de contêiner será do mesmo tipo que o tipo de elemento do contêiner.
 
-Para alcançar este objectivo, o protocolo `Container` declara um tipo associado chamado `ItemType`, escrito na forma `typealias ItemType`. O protocolo não define o que `ItemType` é um pseudonimo - esta informação é deixada para ser fornecida por qualquer tipo adotando o protocolo. No entanto, o pseudonimom`ItemType` provê uma forma de referenciar o tipo de itens de um `Container`, e definir um tipo para ser usado com o método `append(_:)` e com o índice, para assegurar que o comportamente esperado de qualquer `Container` é garantido.
+Para alcançar este objectivo, o protocolo `Container` declara um tipo associado chamado `ItemType`, escrito na forma `typealias ItemType`. O protocolo não define o que `ItemType` é um pseudônimo - esta informação é deixada para ser fornecida por qualquer tipo adotando o protocolo. No entanto, o pseudônimo `ItemType` provê uma forma de referenciar o tipo de itens de um `Container`, e definir um tipo para ser usado com o método `append(_:)` e com o índice, para assegurar que o comportamento esperado de qualquer `Container` é garantido.
 
 Aqui está uma versão do tipo não genérico `IntStack` anterior, adaptado para obedecer ao protocolo `Container`:
 
@@ -380,39 +380,132 @@ struct IntStack: Container {
 }
 ```
 
+O tipo `IntStack` implementa todos os três requisitos do protocolo `Container`, e em cada caso envolve parte da funcionalidade existente do tipo `IntStack` para satisfazer estes requisitos.
 
+Além disso, `IntStack` especifica que para esta implementação de `Container`, o `ItemType` apropriado a ser usado é um tipo `Int`. A definição `typealias ItemType = Int` torna o tipo de dados abstrato de `ItemType` no tipo concreto `Int` para esta implementação do protocolo `Container`.
 
+Graças à inferência de tipos de `Swift`, você não precisa necessariamente declarar um tipo concreto `Int` de `ItemType` como parte da definição de `IntStack`. Como `IntStack` obedece a todos os requisitos do protocolo `Container`, Swift pode inferir o `IntType` apropriado a ser usado, simplesmente olhando para o tipo do parâmetro `item` do método `append(_:)` e o tipo devolvido pelo subscrito.
+
+De fato, se você remover a sentença `typealias ItemType = Int` no código acima, tudo ainda vai funcionar, porque é claro qual tipo deveria ser usado para `ItemType`.
+
+Você também pode criar um `Stack` genérico obedecendo ao protocolo:
+
+```swift
+struct Stack<Element>: Container {
+    // implementação original de Stack<Element>
+    var items = [Element]()
+    mutating func push(item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -> Element {
+        return items.removeLast()
+    }
+    // conformidade ao protocolo Container
+    mutating func append(item: Element) {
+        self.push(item)
+    }
+    var count: Int {
+        return items.count
+    }
+    subscript(i: Int) -> Element {
+        return items[i]
+    }
+}
 ```
-.
 
-.
+Desta vez, o parâmetro de tipo `Element` é usado como tipo para o parâmetro `item` do método `append(_:)` e como o tipo devolvido pelo subscrito. Swift pode a partir disso inferir qual `Element` apropriado deve ser usado como `ItemType` em um contêiner apropriado.
 
-.
+#### Estendendo o Tipo existente para especificar um Tipo Associado
 
-.
+Você pode estender um tipo para adicionar conformidade para um protocolo, como descrito em [Adicionando conformidade para um protocolo com uma Extensão](./protocolos.md#ProtocolConformanceWithExtension). Isto inclui um protocolo com um tipo associado.
 
-.
+O tipo `Array` de Swift já provê um método `append(_:)`, uma propriedade `count`, e um subscrito com um índice `Int` para recuperar estes elementos. Estas três capacidades coincidem com os requisitos do protocolo `Container`. isto significa que você pode estender `Array` para obedecer ao protocolo `Container` simplesmente declarando que `Array` adota o protocolo. Você pode fazer isso com uma extensão vazia, como descrito em [Declarando Adição à um Protocolo com uma extensão](./protocolos.md#DeclaringProtocolAdoptionWithExtension):
 
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
+```swift
+extension Array: Container {}
 ```
+
+O método `append(_:)` existente em `Array` e o subscrito permitem ao Swift inferir o tipo apropriado para usar com `ItemType`, da mesma forma que com o tipo `Stack` genérico acima. Depois de definir esta extensão, você pode usar qualquer `Array` como um `Container`.
+
+### _Clausulas Onde_
+
+Restrições de tipo, como definidas em [Restrições de tipo](./genericos.md#TypeConstraints), permitem a você definir requisitos nos parâmetros de tipos com ma função ou tipo genérico.
+
+Ele também pode ser útil para definir requisitos para tipos associados. Você faz isso definindo _Clausulas Onde_ - do inglês _where clauses_ - como parte de uma lista de parâmetro de tipo. Uma clausula onde permite você requerer que um tipo associado deve obedecer a um certo protocolo, ou que o um certo parâmetro de tipo e tipos associados devem sem os mesmos. Você escreve uma clausula onde ao colocar a palavra chave `where` imediatamente após a lista de parâmetros de tipo, seguido pelas restrições para is tipos associados ou equalidade entre tipos e tipos associados.
+
+O exemplo abaixo define uma função genérica chamada `allItemsMatch`, que verifica se cadas duas instâncias de `Container` contém os mesmos itens na mesma ordem. A função devolve um valor binário de `true` caso todos os itens coincidam ou `false` se eles não batem.
+
+Os dois contêineres não precisam se o mesmo tipo de contêiner (mesmo que possam ser),  mas eles devem armazenar os mesmos tipos de itens, Este requisito é expresso atraves de uma combinação de restrições de tipos e clausulas onde:
+
+```swift
+func allItemsMatch<
+    C1: Container, C2: Container
+    where C1.ItemType == C2.ItemType, C1.ItemType: Equatable>
+    (someContainer: C1, _ anotherContainer: C2) -> Bool {
+        
+        // verifica que ambos os contêineres armazenam a mesma quantidade de itens
+        if someContainer.count != anotherContainer.count {
+            return false
+        }
+        
+        // verifica cada par validando se eles são equivalentes
+        for i in 0..<someContainer.count {
+            if someContainer[i] != anotherContainer[i] {
+                return false
+            }
+        }
+        
+        // todos os itens coincidem, devolva true
+        return true
+        
+}
+```
+
+Esta função recebe dois argumentos chamados `someContainer` e `anotherContainer`. O argumento `someContainer` é do tipo `C1`, e o argumento `anotherContainer` é do tipo `C2`. Ambos `C1` e `C2` são parâmetros de tipo para dois tipos de contêineres a serem determinados quando a função é chamada.
+
+A lista de parâmetros de tipos coloca as seguintes restrições nos dois parâmetros de tipo:
+
+* `C1` deve obedecer ao protocolo `Container` (escrito da forma `C1: Container`).
+* `C2` deve obedecer ao protocolo `Container` (escrito da forma `C2: Container`).
+* O `ItemType` de `C1` deve ser o mesmo que o `ItemType` de `C2` (escrito da forma `C1.ItemType == C2.ItemType`.
+* O `ItemType` de `C1` deve obedecer ao protocolo `Equatable` (escrito da forma `C1.ItemType: Equatable`).
+
+Os terceiro e quarto requisitos são definidos como parte de uma clausula onde, e são escritos após a palavra chave `where` como parte da lista de parâmetros de tipo.
+
+Estes requisitos significam:
+
+* `comeContainer` é um contêiner do tipo `C1`
+* `anotherContainer` é um contêiner do tipo `C2`
+* `someContainer` e `anotherContainer` armazenam os mesmos tipos de elementos.
+* Os items de `someContainer` podem ser verificados com o operador não igual (`!=`) para verificar se ão diferentes entre si.
+
+Os terceiro e quarto requisitos combinam para significar que os itens em `anotherContainer` também podem ser verificados com o operador `!=`, porque eles são exatamente do mesmo tipo que os itens em `someContainer`.
+
+Estes requisitos permitem a função `allItemsMatch(_:_:)` comparar dois contêineres, mesmo que sejam tipos diferentes de contêiner.
+
+A função `allItemsMatch(_:_:)` começa verificando que ambos os contêineres armazenam a mesma quantidade de itens. Se a quantidade é diferente, não existe nenhuma forma deles serem os mesmos, então a função devolve `false`.
+
+Depois dessa verificação, a função itera sobre todos os itens em `someContainer` com um laço `for-in` e o operador de intervalo semi-aberto (`..<`). Para cada items, a função verifica se o item de `someContainer` é não igual ao item correspondente em `anotherContainer`. Se os dois itens são não iguais, então os contêineres não coincidem, e a função devolve `false`.
+
+Se o laço completa sem encontrar um descasamento, os dois contêineres coincidem, e a função devolve `true`.
+
+Aqui está como `allItemsMatch(_:_:)` se parece em ação:
+
+```swift
+var stackOfStrings = Stack<String>()
+stackOfStrings.push("uno")
+stackOfStrings.push("dos")
+stackOfStrings.push("tres")
+ 
+var arrayOfStrings = ["uno", "dos", "tres"]
+ 
+if allItemsMatch(stackOfStrings, arrayOfStrings) {
+    print("Todos os itens coincidem.")
+} else {
+    print("Nem todos os itens coincidem.")
+}
+// imprime "Todos os itens coincidem."
+```
+
+O exemplo acima cria uma instância de `Stack` para armazenar valores `String`, e empurra três valores `String` na pilha. O exemplo também cria uma instância de `Array` inicializada com um _array_ literal contendo os mesmos três valores `String` da pilha. Ainda que a pilha e o _array_ sejam de tipos diferentes, ambos adotam o protocolo `Container`, e ambos contêm o mesmo tipo de valores. Você pode portanto chamar a função `allItemsMatch(_:_:)` com esses dois contêineres como argumentos, No exemplo acima, a função corretamente relata que todos os itens dos dois contêineres coincidem.
+
