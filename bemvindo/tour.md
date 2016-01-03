@@ -12,7 +12,7 @@ Este tour lhe dá informação suficiente para começar a escrever código em Sw
 
 >NOTA
 >
->Em um Mac, baixe este Playground e dê um duplo clique no arquivo para abrí-lo no Xcode: <a href="https://developer.apple.com/go/?id=swift-tour">https://developer.apple.com/go/?id=swift-tour</a>
+>Em um Mac, baixe este Playground e dê um duplo clique no arquivo para abrí-lo no Xcode: [https://developer.apple.com/go/?id=swift-tour"](https://developer.apple.com/go/?id=swift-tour)
 
 ### Valores simples
 
@@ -70,8 +70,8 @@ var shoppingList = ["peixe", "água", "tulipas", "tinta azul"]
 shoppingList[1] = "garrafa d'água"
 
 var occupations = [
-	"Malcolm": "Capitão"
-	"Kaylee", "Mecânico"
+	"Malcolm": "Capitão",
+	"Kaylee": "Mecânico",
 ]
 
 occupations["Jayne"] = "Relações Públicas"
@@ -108,7 +108,7 @@ for score in individualScores {
 print(teamScore)
 ```
 
-Na declaração de um `if`, a condição deve ser uma expressão booleana - isso significa que código como `if score { ... }` é um erro, não uma comparação implícita com zero.
+Na declaração de um `if`, a condição deve ser uma expressão binária - isso significa que código como `if score { ... }` é um erro, não uma comparação implícita com zero.
 
 Você pode usar `if` e `let` juntos para trabalhar com valores que podem estar ausentes. Estes valores são representados como opcionais. Um valor opcional ou contém um valor, ou contém `nil`, para indicar a ausência de valor. Escreva uma ponto de interrogação (`?`) após o tipo de um valor para marcar o valor como opcional.
 
@@ -127,7 +127,7 @@ if let name = optionalName {
 >
 >Altere `optionalName` para `nil`. Que saudação você recebe? Adicione uma cláusula `else` que define uma saudação diferente se `optionalName` for `nil`.
 
-Se o valor opcional for `nil`, a condição é `false` e o código entre chaves é pulado. Caso contrário, o valor opcional é desembrulhado e atribuído à constante após o `let`, tornando o valor desembrulhado disponível dentro do bloco de código.
+Se o valor opcional for `nil`, a condição é `false` e o código entre chaves é pulado. Caso contrário, o valor opcional é desempacotado e atribuído à constante após o `let`, tornando-o  disponível dentro do bloco de código.
 
 Outra maneira de lidar com valores opcionais é fornecer um valor padrão usando o operador `??`. Se o valor opcional estiver ausente, o valor padrão será utilizado.
 
@@ -182,7 +182,7 @@ print(largest)
 
 >EXPERIMENTO
 >
->Adicione outra variável para armazenar que tipo de número foi o maiorm, bem como que número foi esse.
+>Adicione outra variável para armazenar de que tipo era o maior número, bem como que número foi esse.
 
 
 Utilize `while` para repetir um bloco de código até que uma determinada condição seja alterada. A condição do laço de repetição pode estar no final também, garantindo que o laço será executado ao menos uma vez.
@@ -219,9 +219,13 @@ print(secondForLoop)
 
 Utilize `..<` para criar uma série que ignora o valor mais alto e `...` para criar uma série que inclui ambos os valores.
 
+> NOTA DO TRADUTOR
+>
+> Esta tradução se baseia na versão de 02/01/2015, e após a disponibilização do livro original sob a CC by 4.0, foi aprovada a [SE-0007](https://github.com/apple/swift-evolution/blob/master/proposals/0007-remove-c-style-for-loops.md), que determina que esse estilo de laço de repetição será removido na versão 3.0 do Swift, e que na versão 2.2 final - o uso desse tipo de construção irá gerar um aviso de compilação - um _warning_. Por isso, o uso deste tipo de laço de repetição é desencorajado."
+
 ### Funções e Closures
 
-Utilize `func` para declarar uma função. Chame uma função através de seu nome seguido de uma lista de argumentos entre parênteses. Use `->` para separar os nomes e tipos dos parâmetros do tipo de retorno da função.
+Utilize `func` para declarar uma função. Chame uma função através de seu nome seguido de uma lista de argumentos entre parênteses. Use `->` para separar os nomes e tipos dos parâmetros do tipo devolvido pela função.
 
 ```swift
 func greet(name: String, day: String) -> String {
@@ -276,7 +280,7 @@ sumOf(42, 597, 12)
 >
 >Escreva uma função que calcula a média dos valores de seus argumentos.
 
-Funções podem ser aninhadas. Funções aninhadas têm acesso às variáveis declaradas na função mais de fora. Você pode usar funções aninhadas para organizar o código de uma função que seja grande ou complexa.
+Funções podem ser aninhadas. Funções aninhadas têm acesso às variáveis declaradas na função externa. Você pode usar funções aninhadas para organizar o código de uma função que seja grande ou complexa.
 
 ```swift
 func returnFifteen() -> Int {
@@ -290,7 +294,7 @@ func returnFifteen() -> Int {
 returnFifteen()
 ```
 
-Funções são do tipo primeira classe. Isto significa que uma função pode devolver outra função como seu valor.
+Funções são tipos de primeira classe. Isto significa que uma função pode devolver outra função como seu valor.
 
 ```swift
 func makeIncrementer() -> ((Int) -> (Int)) {
@@ -304,3 +308,35 @@ increment(7)
 ```
 
 Uma função pode receber uma outra função como um de seus argumentos.
+
+```swift
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+func lessThanTen(number: Int) -> Bool {
+    return number < 10
+}
+var numbers = [20, 19, 7, 12]
+hasAnyMatches(numbers, condition: lessThanTen)
+```
+
+Funções são na verdade um caso especial de _closures_: blocos de código que podem ser chamados mais tarde. O código em um _closure_ tem acesso a coisas como variáveis e funções que estavam disponíveis no escopo onde o _closure_ foi criado, mesmo se o _closure_ estiver num escopo diferente quando for executado - você já viu um exemplo disto com funções aninhadas. Você pode escrever um _closure_ sem um nome, envolvendo o código com chaves (`{}`). Utilize `in` para separar os argumentos e o tipo de retorno, do corpo.
+
+```swift
+numbers.map({
+    (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+```
+
+>EXPERIMENTO
+>
+>Reescreva o _closure_ para devolver zero para todos os números ímpares
+
+Você 
