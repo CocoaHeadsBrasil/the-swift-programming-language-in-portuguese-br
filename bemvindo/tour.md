@@ -339,4 +339,59 @@ numbers.map({
 >
 >Reescreva o _closure_ para devolver zero para todos os números ímpares
 
-Você 
+Você tem diversas opções parar escrever _closures_ mais consistentes. Quando o tipo do _closure_ já é conhecido, tal como um _callback_ para um _delegate_, você pode omitir o tipo dos seus parâmetros, o tipo que ele devolve, ou ambos. _Closures_ de uma única expressão devolvem implicitamente o valor de sua expressão.
+
+```swift
+let mappedNumbers = numbers.map({ number in 3 * number })
+print(mappedNumbers)
+```
+
+Você pode referenciar parâmetros por números ao invés de nomes - esta abordagem é especialmente útil em _closures_ muito curtos. Um _closure_ passado como último argumento de uma função pode aparecer imediatamente após os parênteses. Quando um _closures_ é o único argumento de uma função, você pode omitir completamente os parênteses.
+
+```swift
+let sortedNumbers = numbers.sort { $0 > $1 }
+print(sortedNumbers)
+```
+
+### Objetos e classes
+
+Utilize `class` seguido do nome da classe parar criar uma classe. A declaração de uma propriedade em uma classe é escrita da mesma forma que a declaração de uma constante ou variável, exceto que está no contexto da classe. Declarações de métodos e funções são escritos da mesma forma.
+
+```swift
+class Shape {
+    var numberOfSides = 0
+    func simpleDescription() -> String {
+        return "Um polígono com \(numberOfSides) lados."
+    }
+}
+```
+
+>EXPERIMENTO
+>
+>Inclua uma constante com `let` e adicione um outro método que recebe um argumento.
+
+Crie uma instância de uma classe colocando parênteses após o nome da classe. Use a sintaxe de pontos para acessar as propriedades e os métodos da instância.
+
+```swift
+var shape = Shape()
+shape.numberOfSides = 7
+var shapeDescription = shape.simpleDescription()
+```
+
+Nesta versão da classe `Shape` está faltando algo importante: um inicializador para configurar a classe quando uma instância é criada. Utilize `init` para criar um.
+
+
+```swift
+class NamedShape {
+    var numberOfSides: Int = 0
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func simpleDescription() -> String {
+        return "Um polígono com \(numberOfSides) lados."
+    }
+}
+```
