@@ -140,14 +140,14 @@ let informalGreeting = "Hi \(nickName ?? fullName)"
 As instruções `switch` aceitam qualquer tipo de dado e uma variedade ampla de operações de comparação - elas não são limitadas a números inteiros e testes de igualdade.
 
 ```swift
-let vegetable = "red pepper"
+let vegetable = "pimenta vermelha"
 switch vegetable {
-case "celery":
-    print("Adicione umas passas e faça um 'Ants on a Log'")
-case "cucumber", "watercress":
+case "aipo":
+    print("Adicione umas passas e faça um 'Formiguinhas no Tronco'")
+case "pepino", "agrião":
     print("Isso daria um bom sanduíche")
-case let x where x.hasSuffix("pepper"):
-    print("É um \(x) apimentado?")
+case let x where x.hasPrefix("pimenta"):
+    print("É uma \(x) que arde?")
 default:
     print("Tudo fica saboroso numa sopa.")
 }
@@ -201,7 +201,7 @@ repeat {
 print(m)
 ```
 
-Você pode manter um índice em um laço ou usando `..<` para fazer uma série de índices ou escrevendo uma inicialização explícita, condição e incremento. Estes dois laços fazem a mesma coisa:
+Você pode manter um índice em um laço de duas formas: ou usando `..<` para fazer uma série de índices ou escrevendo uma inicialização explícita, condição e incremento. Estes dois laços fazem a mesma coisa:
 
 ```swift
 var firstForLoop = 0
@@ -325,7 +325,7 @@ var numbers = [20, 19, 7, 12]
 hasAnyMatches(numbers, condition: lessThanTen)
 ```
 
-Funções são na verdade um caso especial de _closures_: blocos de código que podem ser chamados mais tarde. O código em um _closure_ tem acesso a coisas como variáveis e funções que estavam disponíveis no escopo onde o _closure_ foi criado, mesmo se o _closure_ estiver num escopo diferente quando for executado - você já viu um exemplo disto com funções aninhadas. Você pode escrever um _closure_ sem um nome, envolvendo o código com chaves (`{}`). Utilize `in` para separar os argumentos e o tipo de retorno, do corpo.
+Funções são na verdade um caso especial de _closures_: blocos de código que podem ser chamados mais tarde. O código em um _closure_ tem acesso a coisas como variáveis e funções que estavam disponíveis no escopo onde o _closure_ foi criado, mesmo se o _closure_ estiver num escopo diferente quando for executado - você já viu um exemplo disto com funções aninhadas. Você pode escrever um _closure_ sem um nome, envolvendo o código com chaves (`{}`). Utilize `in` para separar os argumentos e o tipo que a função devolve, do corpo.
 
 ```swift
 numbers.map({
