@@ -6,7 +6,7 @@ Algumas operações não têm garantia de sempre completar a execução ou produ
 
 Como um exemplo, considere uma tarefa de leitura e processamento de dados de um arquivo no disco. Existem várias possibilidades dessa tarefa falhar, incluindo o arquivo não existir no caminho especificado, o arquivo não ter permissão de leitura ou o arquivo não ter sido codificado em um formato compatível. Distinguir entre essas diferentes situações permite que um programa resolva alguns erros e comunique ao usuário quaisquer erros que ele não consiga resolver.
 
-> Nota
+> NOTA
 >
 >Tratamento de erro em Swift funciona em sincronia com padrões de tratamento de erro que usam a classe `NSError` no Cocoa e Objective-C. Para mais informações sobre essa classe, veja *Using Swift with Cocoa and Objective-C (Swift 2.1)*
 
@@ -36,7 +36,7 @@ Existem quatro formas de tratar erros em Swift. Você pode propagar o erro de um
 
 Quando uma função lança um erro, ela muda o fluxo do seu programa, então é importante que você possa identificar rapidamente lugares no seu código que possam lançar erros. Para identificar esses lugares no seu código, escreva a palavra-chave `try` - ou as variações try? ou try! - antes do código que chama aquela função, método ou inicializador que pode lançar um erro. Essas palavras-chaves são descritas na seção abaixo.
 
-> Nota
+> NOTA
 >
 > Tratamento de erro em Swift se assemelha a tratamento de exceções em outras linguagens, com o uso das palavras-chaves `try`, `catch` e `throw`. Diferente do tratamento de exceções em muitas linguagens - incluindo Objective-C - tratamento de erro em Swift não envolve desdobramento da pilha (do inglês *unwinding stack*), um processo que pode ser caro computacionalmente. Como tal, as características de performance de uma instrução `throw` são comparáveis àquelas de uma instrução `return`.
 
@@ -54,7 +54,7 @@ func cannotThrowErrors() -> String
 
 Uma função lançadora propaga erros que são lançados dentro dela para o escopo ao qual a chamou.
 
-> Nota
+> NOTA
 >
 > Apenas funções lançadoras podem propagar erros. Quaisquer erros lançados dentro de uma função não-lançadora devem ser tratados dentro da função.
 
@@ -135,7 +135,7 @@ do {
 ```
 Você escreve um padrão (do inglês *pattern*) depois do `catch` para indicar que erros aquela cláusula pode tratar. Se uma cláusula `catch` não tiver um padrão, a cláusula combina com qualquer erro e vincula o erro com a constante local chamada `error`. Para mais informações sobre combinação de padrões, veja [Patterns](../referencia_liguagem/padroes).
 
-A cláusula `catch` não precisa tratar todo erro possível que o código dentro da sua cláusula `do` possa lançar. Se nenhuma das cláusulas `catch` pode tratar o erro, o erro é propagado para um escopo que o envolve. Todavia, o erro deve ser tratado por algum escopo que o envolve - ou por uma cláusula `do-catch` que o envolve que trata o erro ou estando dentro de uma função lançadora. Por exemplo, o código seguinte trata os três casos do enumerador `VendingMachineError`, mas todos os outros erros tem que ser tratado por seu escopo envolvente:
+A cláusula `catch` não precisa tratar todo erro possível que o código dentro da sua cláusula `do` possa lançar. Se nenhuma das cláusulas `catch` pode tratar o erro, o erro é propagado para um escopo que o envolve. Todavia, o erro deve ser tratado por algum escopo que o envolve - ou por uma cláusula `do-catch` que o envolve que trata o erro ou estando dentro de uma função lançadora. Por exemplo, o código seguinte trata os três casos do enumerador `VendingMachineError`, mas todos os outros erros devem ser tratados por seu escopo envolvente:
 
 ```Swift
 var vendingMachine = VendingMachine()
@@ -156,7 +156,7 @@ No exemplo acima, a função `buyFavoriteSnack(_:vendingMachine:)` é chamada em
 
 ###Convertendo Erros para Valores Opcionais
 
-Voce usa `try?` para tratar um erro, convertendo ele para um valor opcional (do inglês *optional*). Se um erro é lançado quando a expressão `try?` está sendo analisada, o valor da expressão é nulo. Por exemplo, no seguinte código x e y tem o mesmo valor e comportamento:
+Voce usa `try?` para tratar um erro, convertendo ele para um valor opcional (do inglês *optional*). Se um erro é lançado quando a expressão `try?` está sendo analisada, o valor da expressão é nulo. Por exemplo, no seguinte código `x` e `y` tem o mesmo valor e comportamento:
 
 ```Swift
 func someThrowingFunction() throws -> Int {
@@ -173,7 +173,7 @@ do {
 }
 ```
 
-Se `someThrowingFunction()` lança um erro, o valor de x e y é nulo. Caso contrário, o valor de x e y é o valor que a função retornou. Perceba que x e y são opcionais do tipo que 'someThrowingFunction()' retorna, seja ele qual for. Aqui a função retorna um inteiro, então x e y são opcionais inteiros.  
+Se `someThrowingFunction()` lança um erro, o valor de `x` e `y` é nulo. Caso contrário, o valor de `x` e `y` é o valor que a função retornou. Perceba que `x` e `y` são opcionais do tipo que 'someThrowingFunction()' retorna, seja ele qual for. Aqui a função retorna um inteiro, então `x` e `y` são opcionais inteiros.  
 
 Usando o `try?` te permite escrever, de forma concisa, código de tratamento de erro quando você quer tratar todos os erros do mesmo jeito. Por exemplo, o código seguinte usa várias opções para buscar dados, ou retorna um valor nulo se todas as opções que falharem.
 
@@ -195,7 +195,7 @@ let photo = try! loadImage("./Resources/John Appleseed.jpg")
 ```
 ### Especificando Ações de Limpeza
 
-Você usa a instrução `defer` para executar o conjunto de instruções pouco antes que a execução do código deixe o bloco de código atual. Essa instrução te permite fazer qualquer limpeza necessária que deve ser feita independente de como a execução deixa o bloco de código - se ela deixa porquê um erro foi lançado ou por causa de uma instrução como `return` ou `break`. Por exemplo, você pode usar uma instrução `defer` para garantir que os descritores do arquivo são feixados e a memória alocada manualmente, liberada.
+Você usa a instrução `defer` para executar um conjunto de instruções pouco antes que a execução do código saia do bloco de código atual. Essa instrução te permite fazer qualquer limpeza necessária que deva ser feita independente de como a execução saia do bloco de código - se ela sai porque um erro foi lançado ou por causa de uma instrução como `return` ou `break`. Por exemplo, você pode usar uma instrução `defer` para garantir que os descritores do arquivo são fechados e a memória alocada manualmente, liberada.
 
 Uma instrução `defer` adia a execução até que o escopo atual esteja encerrado. A instrução consiste na palavra-chave `defer` e a instrução a ser executada depois. As instruções adiadas podem não conter nenhum código que transfira o controle para fora das instruções, como uma instrução `break` ou `return` ou lançando um erro. Ações adiadas são executadas na ordem reversa da qual são especificadas - isso é, o código na primeira instrução `defer` executa depois do código na segunda e assim por diante.
 
@@ -216,6 +216,6 @@ func processFile(filename: String) throws {
 
 O exemplo acima usa a instrução `defer` para garantir que a função `open(_:)` tenha uma chamada `close(_:)` correspondente.
 
-> Nota
+> NOTA
 >
 > Você pode usar uma instrução `defer` mesmo quando nenhum código de tratamento de erro está envolvido.
