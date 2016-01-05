@@ -10,10 +10,10 @@ Extensões em Swift podem:
 * Fornecer novos inicializadores 
 * Definir _subscripts_ 
 * Definir e usar tipos aninhados novos
-* Fazer um tipo existente obedecer com um protocolo 
+* Fazer um tipo existente obedecer a um protocolo 
 
-Em Swift, você ainda pode estender um protocolo para fornecer implementações de seus requisitos ou adicionar funcionalidades para que os tipos que o obedecem possam tirar vantagem. Para mais detalhes veja [Extensões de Protocolo](guia/protocolos.md#extensoesdeprotocolo) 
+Em Swift, você ainda pode estender um protocolo para fornecer implementações de seus requisitos ou adicionar funcionalidades para que os tipos que o obedeçam possam tirar vantagem. Para mais detalhes veja [Extensões de Protocolo](guia/protocolos.md#extensoesdeprotocolo) 
 
 > NOTA
 >
-> Extensões podem adicionar novas funcionalidades para um tipo, mas não podem sobrescrever funcionalidades existentes.
+> Extensões podem adicionar novas funcionalidades para um tipo, mas não podem sobrescrever funcionalidades
