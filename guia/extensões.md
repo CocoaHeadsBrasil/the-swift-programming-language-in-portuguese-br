@@ -17,3 +17,27 @@ Em Swift, você ainda pode estender um protocolo para fornecer implementações 
 > NOTA
 >
 > Extensões podem adicionar novas funcionalidades para um tipo, mas não podem sobrescrever funcionalidades
+
+### Sintaxe de Extensões 
+
+Declare as extensões com a palavra-chave `extension`. 
+
+```swift 
+extension SomeType { 
+// new functionality to add to SomeType goes here 
+} 
+``` 
+
+Uma extensão pode estender uma funcionalidade existente para que ela possa adotar um ou mais protocolos. Quando for este o caso, o nome do protocolo é escrito exatamente da mesma forma que uma classe ou estrutura. 
+
+```swift 
+extension SomeType: SomeProtocol, AnotherProtocol { 
+// implementation of protocol requirements goes here 
+} 
+``` 
+
+Adicionar protocolo de conformidade desta forma, está descrito em [Adicionando Protocolo de Conformidade com Extensões](guia/protocolos.md#adicionandoprotocolosdeconformidade). 
+
+> NOTA 
+> 
+> Se você definir uma extensão para adicionar uma nova funcionalidade para um tipo existente, a nova funcionalidade estará disponível para todas as instâncias daquele tipo, mesmo se elas foram criadas antes de a extensão ser definida.
