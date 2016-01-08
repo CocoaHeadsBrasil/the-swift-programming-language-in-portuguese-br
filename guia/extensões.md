@@ -32,7 +32,6 @@ Uma extensão pode estender uma funcionalidade existente para que ela possa adot
 
 ```swift 
 extension SomeType: SomeProtocol, AnotherProtocol { 
-// implementation of protocol requirements goes here 
 // implementações de requerimentos de protocolo entram aqui
 } 
 ``` 
