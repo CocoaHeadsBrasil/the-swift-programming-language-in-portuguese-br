@@ -24,7 +24,7 @@ Declare as extensões com a palavra-chave `extension`.
 
 ```swift 
 extension SomeType { 
-// new functionality to add to SomeType goes here 
+// novas funcionalidades a serem adicionadas à SomeType entram aqui 
 } 
 ``` 
 
@@ -33,11 +33,12 @@ Uma extensão pode estender uma funcionalidade existente para que ela possa adot
 ```swift 
 extension SomeType: SomeProtocol, AnotherProtocol { 
 // implementation of protocol requirements goes here 
+// implementações de requerimentos de protocolo entram aqui
 } 
 ``` 
 
-Adicionar protocolo de conformidade desta forma, está descrito em [Adicionando Protocolo de Conformidade com Extensões](guia/protocolos.md#adicionandoprotocolosdeconformidade). 
+Adicionar protocolo de conformidade desta forma está descrito em [Adicionando Protocolo de Conformidade com Extensões](guia/protocolos.md#adicionandoprotocolosdeconformidade). 
 
 > NOTA 
 > 
-> Se você definir uma extensão para adicionar uma nova funcionalidade para um tipo existente, a nova funcionalidade estará disponível para todas as instâncias daquele tipo, mesmo se elas foram criadas antes de a extensão ser definida.
+> Se você definir uma extensão para adicionar uma nova funcionalidade para um tipo existente, a nova funcionalidade estará disponível para todas as instâncias daquele tipo, mesmo se elas foram criadas antes da extensão ser definida.
