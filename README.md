@@ -15,7 +15,7 @@ Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProg
 
 1. Os capítulos disponíveis para tradução serão criados como issues no GitHub;
 2. Os arquivos *.md* estão criados com o nome de cada capítulo. Ex.: `bemvindo/sobre.md`
-3. Caso queira contribuir com a tradução, crie uma issue com o formato `[Tradução] <seção> - <capítulo>` (ex.: `[Tradução] Bem-vindo ao Swift - Sobre o Swift`) e comente na issue avisando, para não haver traduções múltiplas do mesmo arquivo.
+3. Caso queira contribuir com a tradução, crie uma issue com o formato `<seção> - <capítulo>` (ex.: `Bem-vindo ao Swift - Sobre o Swift`), adicione a tag `tradução` e comente na issue avisando, para não haver traduções múltiplas do mesmo arquivo.
 4. Crie uma branch para determinado arquivo que queira traduzir e faça o Pull Request.
 
 #### Formatação do Markdown:
@@ -32,7 +32,7 @@ Caso queira visualizar como está ficando o texto, basta utilizar o Gitbook. Par
 
 ### Processo de avaliação da tradução
 
-1. Crie um Pull Request com o título no formato: `[Revisão] <seção> - <capítulo>` (ex.: `[Revisão] Bem-vindo ao Swift - Sobre o Swift`)
+1. Crie um Pull Request com o título no formato: `<seção> - <capítulo>` (ex.: `Bem-vindo ao Swift - Sobre o Swift`) e adicione as tags `tradução` && (`parcial` || `completa`)
 2. Um (ou mais de um) revisor verifica o Pull Request;
 3. Se achado erro de tradução ou erro de português, o revisor comenta na linha;
 4. O criador do PR corrige ou responde se achar que não faz sentido, se discorda ou se tiver algo mais a acrescentar;
