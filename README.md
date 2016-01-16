@@ -25,7 +25,7 @@ Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProg
 3. Código em bloco deve conter syntax highlight do Swift;
 4. Traduzir termo técnico apenas se fizer sentido. Se for prejudicar o entendimento, é preferível manter o termo original. ex.: Closures;
 5. Notas de rodapé devem ser criadas como quote do markdown, usando o sinal de `>` na frente;
-6. **Não esqueça** de habilitar o verificador ortográfico do seu editor. Isso poupa **muito** tempo de que está revisando.
+6. **Não esqueça** de habilitar o verificador ortográfico do seu editor. Isso poupa **muito** tempo de que está revisando. Editores preferidos: [MacDown](http://macdown.uranusjr.com/) ou [Mou](http://25.io/mou/).
 
 Caso queira visualizar como está ficando o texto, basta utilizar o Gitbook. Para isso, siga as instruções na nossa [página do wiki]
 (https://github.com/CocoaHeadsBrasil/the-swift-programming-language-in-portuguese-br/wiki). 
