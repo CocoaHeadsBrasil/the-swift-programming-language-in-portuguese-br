@@ -337,7 +337,7 @@ numbers.map({
 
 >EXPERIMENTO
 >
->Reescreva o _closure_ para devolver zero para todos os números ímpares
+>Reescreva o _closure_ para devolver zero para todos os números ímpares.
 
 Você tem diversas opções parar escrever _closures_ mais consistentes. Quando o tipo do _closure_ já é conhecido, tal como um _callback_ para um _delegate_, você pode omitir o tipo dos seus parâmetros, o tipo que ele devolve, ou ambos. _Closures_ de uma única expressão devolvem implicitamente o valor de sua expressão.
 
@@ -395,3 +395,155 @@ class NamedShape {
     }
 }
 ```
+
+Repare como `self` é usado para distinguir a propriedade `name` do argumento `name` passado para o inicializador. Os argumentos do inicializador são passados como uma chamada de função quando você cria uma instância da classe. Toda propriedade precisa de um valor atribuído - ou em sua declaração (como em `numberOfSides`) ou no seu inicializador (como em `name`).
+
+Utilize `deinit` para criar um desconstrutor se você precisar executar alguma limpeza antes do objeto ser desalocado.
+
+Subclasses incluem o nome da sua superclasse após seu próprio nome, separado por um sinal de dois pointos. Não há nenhum requisito que classes estendam alguma classe raiz padrão, portanto você pode incluir ou omitir uma superclasse conforme for preciso.
+
+Métodos em uma subclasse que sobrescrevem a implementação da superclasse são marcados com `override` - sobrescrevendo um método por acidente, sem `override`, é detectado pelo compilador como um erro. O compilador também detecta métodos com `override` que na verdade não sobrescrevem nenhum método da superclasse.
+
+```swift
+class Square: NameShape {
+    var sideLength: Double
+    
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+    
+    func area() -> Double {
+        return sideLegth * sideLength
+    }
+    
+    override func simpleDescription() -> String {
+        return "Um quadrado com lados de tamanho \(sideLength)."
+    }
+}
+let test = Square(sideLength: 5.2, name: "meu quadrado teste")
+test.area()
+test.simpleDescription()
+```
+
+>EXPERIMENTO
+>
+>Crie outra subclasse de `NamedShape` chamada `Circle` que recebe um raio e um nome como argumentos do seu inicializador. Implemente os métodos `area()` e `simpleDescription()` na classe `Circle`.
+
+Em adição às propriedades simples que são armazenadas, propriedades podem ter uma função específica que é chamada quando queremos pegar o seu valor e outra quando queremos definir o seu valor, também conhecidos como _getter_ e _setter_.
+
+```swift
+class EquilateralTriangle: NamedShape {
+    var sideLength: Double = 0.0
+    
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 3
+    }
+    
+    var perimeter: Double {
+        get {
+            return 3.0 * sideLength
+        }
+        set {
+            sideLength = newValue / 3.0
+        }
+    }
+    
+    override func simpleDescription() -> String {
+        return "Um triângulo equilátero com lados de tamanho \(sideLength)."
+    }
+}
+var triangle = EquilateralTriangle(sideLength: 3.1, name: "um triângulo")
+print(triangle.perimeter)
+triangle.perimeter = 9.9
+print(triangle.sideLength)
+```
+
+Na função de definição (_setter_) de `perimeter`, o novo valor tem o nome implícito `newValue`. Você pode fornecer um nome explícito entre parênteses após o `set`.
+
+Repare que o inicializador da classe `EquilateralTriangle` possui três passos diferentes:
+
+1. Definindo o valor das propriedades que a subclasse declara
+2. Chamando o inicializador da superclasse
+3. Alterando o valor de propriedades definidas pela superclasse. Qualquer trabalho de ajuste adicional que utilize métodos, _getters_ ou _setters_, também podem ser feitos neste ponto.
+
+Se você não precisa computar a propriedade mas ainda precisa fornecer algum código que é executado antes e depois de definir o novo valor, utilize `willSet` e `didSet`. O código que você fornece é executado toda hora que o valor é alterado fora de um inicializador. Por exemplo, a classe abaixo garante que o tamanho do lado de seu triângulo é sempre o mesmo que o tamanho do lado de seu quadrado.
+
+```swift
+class TriangleAndSquare {
+    var triangle: EquilateralTriangle {
+        willSet {
+            square.sideLength = newValue.sideLength
+        }
+    }
+    var square: Square {
+        willSet {
+            triangle.sideLength = newValue.sideLength
+        }
+    }
+    init(size: Double, name: String) {
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+}
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "outro polígono teste")
+print(triangleAndSquare.square.sideLength)
+print(triangleAndSquare.triangle.sideLength)
+triangleAndSquare.square = Square(sideLength: 50, name: "quadrado maior")
+print(triangleAndSquare.triangle.sideLength)
+```
+
+Quando se está trabalhando com valores opcionais, você pode escrever `?` antes de operações como métodos, propriedades e _subscripts_. Se o valor antes de `?` for `nil`, tudo após `?` é ignorado e o valor da expressão inteira é `nil`. Caso contrário, o valor opcional é desembrulhado, e tudo que vem após `?` age sobre o valor desembrulhado. Em ambos os casos, o valor da expressão inteira é um valor opcional.
+
+```swift
+let optionalSquare: Square? = Square(sideLength: 2.5, name: "quadrado opcional")
+let sideLength = optionalSquare?.sideLength
+```
+
+### Enumerações e estruturas
+
+Use `enum` para criar uma enumeração. Assim como classes e todos os outros tipos nomeados, enumerações podem ter métodos associados a elas.
+
+```swift
+enum Rank: Int {
+    case Ace = 1
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    case Jack, Queen, King
+    func simpleDescription() -> String {
+        switch self {
+        case .Ace:
+            return "ás"
+        case .Jack:
+            return "valete"
+        case .Queen:
+            return "dama"
+        case .King:
+            return "rei"
+        default:
+            return String(self.rawValue)
+        }
+    }
+}
+let ace = Rank.Ace
+let aceRawValue = ace.rawValue
+```
+
+>EXPERIMENTO
+>
+>Escreva uma função que compara dois valores de `Rank` através de seus respectivos valores brutos - do inglês _rawValue_.
+
+No exemplo acima, o tipo do valor bruto da enumeração é um `Int`, portanto você somente precisa especificar o primeiro valor bruto. O restante dos valores brutos são atribuídos em ordem. Você também pode usar _strings_ ou números de ponto flutuante como o tipo bruto de uma enumeração. Use a propriedade `rawValue` para acessar o valor bruto de um caso de enumeração.
+
+Utilize o inicializador `init?(rawValue:)` para criar uma instância de uma enumeração a partir de um valor bruto.
+
+```swift
+if let convertedRank = Rank(rawValue: 3) {
+    let threeDescription = convertedRank.simpleDescription()
+}
+```
+
+Os valores de caso de uma enumeração são valores reais, não somente outra forma de escrever seus valores brutos. De fato, em casos onde não há um valor bruto com um significado real, você não precisa fornecer um.
+
