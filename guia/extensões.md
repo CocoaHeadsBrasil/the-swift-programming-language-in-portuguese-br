@@ -78,3 +78,63 @@ print("Uma maratona tem \(aMarathon) metros de comprimento")
 > NOTA 
 > 
 > Extensões podem adicionar novas propriedades computadas, mas elas não podem adicionar propriedades armazenadas, ou adicionar observadores de propriedade para uma propriedade existente.
+
+###Inicializadores
+
+Extensões podem adicionar novos inicializadores para tipos existentes. Isso possibilita que você estenda outros tipos para que aceitem seus próprios tipos customizados como parâmetros inicializadores, ou fornecer opções adicionais de inicializadores que não foram incluidos como parte da implementação original.
+
+Extensões podem adicionar novos `convenience initializers` para uma classe, mas eles não podem adicionar novos `designated initializers` ou `deinitializers` para uma classe.
+`Designated initializers` e `deinitializers` devem sempre ser fornecidos pela implementação original da classe. 
+
+> NOTA 
+> 
+> Se você usar uma extensão para adicionar um inicializador para um tipo de valor que fornece valores padrão para todas as suas propriedades armazenadas e não define quaisquer inicializadores personalizados, você pode chamar o inicializador padrão e `memberwise initializer` para esse tipo de valor de dentro de sua extensão inicializadora. 
+> 
+> Esse não seria o caso se você tivesse escrito o inicializador como parte da implementação original do tipo de valor, como está descrito em [Inicializadores de Delegação para Tipos de Valor](guia/initialization#InicializadoresDeDelegacaoParaTiposDeValor).
+
+O exemplo abaixo define uma estrutura customizada `Rect` para representar uma retângulo geométrico. O exemplo também define duas estruturas de apoio chamadas `Size` e `Point`, ambas as quais fornecem os valores padrão de `0.0` para todas as suas propriedades:
+
+
+```swift 
+struct Size {
+    var width = 0.0, height = 0.0
+}
+struct Point {
+    var x = 0.0, y = 0.0
+}
+struct Rect {
+    var origin = Point()
+    var size = Size()
+}”
+```
+
+Porque a estrutura `Rect` fornece valores padrão para todas as suas propriedades, ela recebe um inicializador padrão e um `memberwise initializer` automaticamente, conforme descrito em [Inicializadores Padrão](guia/initialization#InicializadoresPadrao). Estes inicializadores podem ser usados para criar novas instâncias `Rect`:
+
+```swift 
+let defaultRect = Rect()
+let memberwiseRect = Rect(origin: Point(x: 2.0, y: 2.0),
+    size: Size(width: 5.0, height: 5.0)) 
+```
+
+Você pode estender a estrutura `Rect` para fornecer um inicializador adicional que usa um ponto central específico e tamanho:
+
+```swift 
+extension Rect {
+    init(center: Point, size: Size) {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    }
+}
+```
+Este novo inicializador começa calculando um ponto de origem adequado com base no ponto central fornecido e valor de tamanho. O inicializador então chama a estrutura de inicialização automática `memberwise initializer` `init(origin:size:)`, que armazena o novo valor de origem e tamanho nas propriedades adequadas:
+
+```swift 
+let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
+    size: Size(width: 3.0, height: 3.0))
+// A origem de centerRect é (2.5, 2.5) e seu tamanho é (3.0, 3.0)
+```
+
+> NOTA 
+> 
+> Se você fornecer um novo inicializador com uma extensão, você ainda é responsável por garantir que cada instância é totalmente inicializada assim que o inicializador terminar.
