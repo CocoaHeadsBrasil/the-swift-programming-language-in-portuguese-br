@@ -1,4 +1,5 @@
 ## Genéricos
+<<<<<<< HEAD
 
 _Código genérico_ permite você escrever código flexível, funções reutilizáveis e tipos que podem trabalhar com qualquer tipo, sujeito a requisitos que você define. Você pode escrever código que evita duplicação e expressa suas intenções de maneira clara e abstraída.
 
@@ -507,3 +508,5 @@ if allItemsMatch(stackOfStrings, arrayOfStrings) {
 
 O exemplo acima cria uma instância de `Stack` para armazenar valores `String`, e empurra três valores `String` na pilha. O exemplo também cria uma instância de `Array` inicializada com um _array_ literal contendo os mesmos três valores `String` da pilha. Ainda que a pilha e o _array_ sejam de tipos diferentes, ambos adotam o protocolo `Container`, e ambos contêm o mesmo tipo de valores. Você pode portanto chamar a função `allItemsMatch(_:_:)` com esses dois contêineres como argumentos, No exemplo acima, a função corretamente relata que todos os itens dos dois contêineres coincidem.
 
+=======
+>>>>>>> master
