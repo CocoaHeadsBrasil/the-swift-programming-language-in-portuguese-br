@@ -1,2 +1,2 @@
 ## Funções
-### <a name="inoutparameters"></a> Parametros de entrada-saída
+### <a name="inoutparameters"></a> Parâmetros de entrada-saída
