@@ -231,3 +231,51 @@ Se o valor `Int` não tem dígitos suficientes para o índice solicitado, a impl
 0746381295[9]
 ```
 
+###Tipos aninhados
+
+As extensões podem adicionar novos tipos aninhados de classes, estruturas e enumerações existentes:
+
+```swift 
+extension Int {
+    enum Kind {
+        case Negative, Zero, Positive
+    }
+    var kind: Kind {
+        switch self {
+        case 0:
+            return .Zero
+        case let x where x > 0:
+            return .Positive
+        default:
+            return .Negative
+        }
+    }
+}
+```
+Este exemplo adiciona uma nova enumeração aninhada para `Int`. Essa enumeração, chamado `Kind`, expressa o tipo de número que um inteiro particular representa. Especificamente, ele expressa se o número for negativo, zero, ou positivo.
+
+Este exemplo também adiciona uma nova propriedade de instância computada para `Int`, chamada `Kind`, que retorna o caso `Kind` de enumeração apropriado para esse inteiro.
+A enumeração aninhada agora pode ser usado com qualquer valor `Int`:
+
+```swift 
+func printIntegerKinds(numbers: [Int]) {
+    for number in numbers {
+        switch number.kind {
+        case .Negative:
+            print("- ", terminator: "")
+        case .Zero:
+            print("0 ", terminator: "")
+        case .Positive:
+            print("+ ", terminator: "")
+        }
+    }
+    print("")
+}
+printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
+// Imprimi "+ + - 0 - 0 +"
+```
+Esta função, `printIntegerKinds`, recebe um array de entrada de valores inteiros e itera sobre esses valores, por sua vez. Para cada inteiro no array, a função considera o `kind` de propriedade computados para esse inteiro, e imprime uma descrição apropriada.
+
+> NOTA 
+> 
+> `number.kind` já é conhecido por ser do tipo `Int.Kind`. Devido a isso, todos os valores do caso `Int.Kind` podem ser escrito na forma abreviada dentro da declaração `switch`, tal como `.Negative` em vez de `Int.Kind.Negative`.
