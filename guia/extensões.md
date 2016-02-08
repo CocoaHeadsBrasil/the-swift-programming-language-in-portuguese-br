@@ -175,3 +175,22 @@ Use a sintaxe `trailing closure` para fazer a chamada mais sucinta:
 // Até logo!
 // Até logo!
 ```
+
+###Mutação de Métodos de Instância
+
+Métodos de instância adicionados com uma extensão também podem modificar (ou mutar) a própria instância. Estrutura e métodos de enumeração que modificam `self` ou suas propriedades, devem marcar o método de instância como `mutating `, assim como métodos de mutação de uma implementação original.
+
+O exemplo a seguir adiciona um novo método mutante chamado `square` para o tipo `Int` do Swift, que eleva o valor original ao quadrado:
+
+```swift 
+extension Int {
+    mutating func square() {
+        self = self * self
+    }
+}
+var someInt = 3
+someInt.square()
+// someInt agora é 9
+```
+
+
