@@ -138,3 +138,40 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
 > NOTA 
 > 
 > Se você fornecer um novo inicializador com uma extensão, você ainda é responsável por garantir que cada instância é totalmente inicializada assim que o inicializador terminar.
+
+
+###Métodos
+
+As extensões podem adicionar novos métodos de instância e métodos de tipo para tipos existentes. O exemplo a seguir adiciona um novo método de instância chamado repetições para o tipo `Int`:
+
+```swift 
+extension Int {
+    func repetitions(task: () -> Void) {
+        for _ in 0..<self {
+            task()
+        }
+    }
+}
+```
+O método de repetições`(_:)` leva um único argumento do tipo `() -> Void`, o que indica uma função que não tem parâmetros e não retorna um valor.
+
+Depois de definir esta extensão, você pode chamar o método de repetição`(_:)` em qualquer número inteiro para executar uma tarefa para aquele número de vezes:
+
+```swift 
+3.repetitions({
+    print("Olá!")
+})
+// Olá!
+// Olá!
+// Olá!
+```
+Use a sintaxe `trailing closure` para fazer a chamada mais sucinta:
+
+```swift 
+3.repetitions {
+    print("Até logo!")
+}
+// Até logo!
+// Até logo!
+// Até logo!
+```
