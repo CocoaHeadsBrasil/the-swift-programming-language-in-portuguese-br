@@ -193,4 +193,41 @@ someInt.square()
 // someInt agora é 9
 ```
 
+###Índices
+
+As extensões podem adicionar novos índices para um tipo existente. Este exemplo adiciona um índice do tipo inteiro para o tipo `int` do Swift. Este índice `[n]` retorna os dígitos decimais de n lugares da direita do número:
+
+* 123456789[0] retorna 9
+* 123456789[1] retorna 8 
+
+... e assim por diante.
+
+```swift 
+extension Int {
+    subscript(var digitIndex: Int) -> Int {
+        var decimalBase = 1
+        while digitIndex > 0 {
+            decimalBase *= 10
+            --digitIndex
+        }
+        return (self / decimalBase) % 10
+    }
+}
+746381295[0]
+// retorna 5
+746381295[1]
+// retorna 9
+746381295[2]
+// retorna 2
+746381295[8]
+// retorna 7
+```
+
+Se o valor `Int` não tem dígitos suficientes para o índice solicitado, a implementação de índice retorna `0`, como se o número tinha sido preenchido com zeros à esquerda:
+
+```swift 
+746381295[9]
+// retorna 0, como se você tivesse solicitado:
+0746381295[9]
+```
 
