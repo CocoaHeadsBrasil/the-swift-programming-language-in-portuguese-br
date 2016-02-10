@@ -606,9 +606,9 @@ let failure = ServerResponse.Error("Acabou o queijo.")
 
 switch success {
     case let .Result(sunrise, sunset):
-        print("Nascer do sol é às \(sunrise) e o pôr do sol é às \(sunset).")
+        print("O nascer do sol é às \(sunrise) e o pôr do sol é às \(sunset).")
     case let .Error(error):
-        print("Failure... \(error)")
+        print("Falha... \(error)")
 }
 ```
 
