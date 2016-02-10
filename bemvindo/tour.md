@@ -545,5 +545,77 @@ if let convertedRank = Rank(rawValue: 3) {
 }
 ```
 
-Os valores de caso de uma enumeração são valores reais, não somente outra forma de escrever seus valores brutos. De fato, em casos onde não há um valor bruto com um significado real, você não precisa fornecer um.
+Os valores de uma enumeração são valores de verdade, não somente outra forma de escrever seus valores brutos. De fato, em casos onde não há um valor bruto com um significado real, você não precisa fornecer um.
 
+```swift
+enum Suite {
+    case Spades, Hearts, Diamonds, Clubs
+    func simpleDescription() -> String {
+        switch self {
+        case .Spades
+            return "espadas"
+        case .Hearts:
+            return "copas"
+        case .Diamonds:
+            return "ouros"
+        case .Clubs:
+            return "paus"
+        }
+    }
+}
+let hearts = Suite.Hearts
+let heartsDescription = hearts.simpleDescription()
+```
+
+>EXPERIMENTO
+>
+>Adicione um método `color()` em `Suite` que retorna "preto" para espadas e paus, e "vermelho" para copas e ouros.
+
+Repare as duas formas que o item `Hearts` da enumeração é referenciado acima: Quando está atribuindo um valor para a constante `copas`, o item `Suite.Hearts` é referenciado por seu nome completo porque a constante não tem um tipo explícito especificado. Dentro do _switch_, o item de enumeração é referenciado por sua forma abreviada `.Hearts` porque o valor de `self` já é conhecido como um naipe. Você pode usar a forma abreviada sempre que o tipo do valor já for conhecido.
+
+Utilize `struct` para criar uma estrutura. Estruturas têm suporte a muitos dos comportamentos das classes, incluindo métodos e inicializadores. Uma das diferenças mais importantes entre estruturas e classes é que estruturas são sempre copiadas quando são passadas através do seu código, ao passo que classes são passadas como referência.
+
+```swift
+struct Card {
+    var rank: Rank
+    var suite: Suite
+    func simpleDescription() -> String {
+        return "O \(rank.simpleDescriptions()) de \(suit.simpleDescription())"
+    }
+}
+let threeOfSpades = Card(rank: .Three, suite: .Spades)
+let threeOfSpadesDescription = threeOfSpades.simpleDescription()
+```
+
+>EXPERIMENTO
+>
+>Adicione um método à estrutura `Card` que cria um baralho de cartas, com uma carta de cada combinação de valor e naipe.
+
+Uma instância de um item de enumeração pode ter valores associados com a instância. Instâncias do mesmo item de enumeração podem ter diferentes valores associados a eles. Você fornece os valores associados quando cria a instância. Valores associados e valores brutos são diferentes: O valor bruto de um item de enumeração é o mesmo para todas suas instâncias, e você fornece o valor bruto quando define a enumeração.
+
+Por exemplo, considere o caso de pedir o horário do nascer e do pôr do sol para um servidor. O servidor ou responde com a informação or responde com alguma informação de erro.
+
+```swift
+enum ServerResponse {
+    case Result(String, String)
+    case Error(String)
+}
+
+let success = ServerResponse.Result("6:00 am", "8:09 pm")
+let failure = ServerResponse.Error("Acabou o queijo.")
+
+switch success {
+    case let .Result(sunrise, sunset):
+        print("Nascer do sol é às \(sunrise) e o pôr do sol é às \(sunset).")
+    case let .Error(error):
+        print("Failure... \(error)")
+}
+```
+
+>EXPERIMENTO
+>
+>Adicione um terceiro caso à `ServerResponse` e ao _switch_.
+
+Repare como os horários do nascer e do pôr do sol são extraídos do valor de `ServerResponse` como parte do casamento dos valores com os casos de _switch_
+
+###Protocolos e extensões
