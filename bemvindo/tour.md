@@ -687,3 +687,52 @@ print(protocolValue.simpleDescription)
 ```
 
 Apesar da variável `protocolValue` ter o tipo `SimpleClass` em tempo de execução, o compilador a trata como o tipo `ExampleProtocol`. Isto significa que você não pode acidentalmente acessar métodos ou propriedades que a classe implementa em adição à conformidade do seu protocolo.
+
+###Generics
+
+Escreva um nome dentro dos sinais de maior e menor para criar um tipo ou uma função genérica.
+
+```swift
+func repeatItem<Item>(item: Item, numberOfTimes: Int) -> [Item] {
+    var result = [Item]()
+    for _ in 0..<numberOfTimes {
+        result.append(item)
+    }
+    return result
+}
+repeatItem("knock", numberOfTimes:4)
+```
+
+Você pode criar formas genéricas de funções e métodos, bem como classes, enumerações e estruturas.
+
+```swift
+// Reimplement the Swift standard library's optional type
+enum OptionalValue<Wrapped> {
+    case None
+    case Some(Wrapped)
+}
+var possibleInteger: OptionalValue<Int> = .None
+var possibleInteger = .Some(100)
+```
+
+Use `where` após o nome do tipo para especificar uma lista de requisitos - por exemplo, para exigir que o tipo implemente um protocol, para exigir que os dois tipos sejam os mesmos, ou para exigir que uma classe tenha uma superclasse específica.
+
+```swift
+func anyCommonElements <T: SequenceType, U: SequenceType where T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, _ rhs: U) -> Bool {
+    for lhsItem in lhs {
+        for rhsItem in rhs {
+            if lshItem == rhsItem {
+                return true
+            }
+        }
+    }
+    return false
+}
+anyCommonElements([1, 2, 3], [3])
+```
+
+>EXPERIMENTO
+>
+>Modifique a função `anyCommonElements(_:_:)` para criar uma função que devolve uma lista de elementos que quaisquer duas sequências tenham em comum.
+
+Escrevendo `<T: Equatable>` é o mesmo que escrever `<T where T:Equatable>`.
