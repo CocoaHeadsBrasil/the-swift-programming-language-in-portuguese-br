@@ -83,3 +83,79 @@ O exemplo acima define uma variável chamada `numberOfLegs` e a inicializa com u
 > NOTA
 >
 > O tipo `Dictionary` em Swift implementa um *subscript* chave-valor que recebe e retorna um tipo *opcional*. Para o *dictionary* acima `numberOfLegs`, o *subscript* chave-valor recebe e retorna um valor do tipo `Int?`, ou "`Int` opcional". O tipo `Dictionary` usa um *subscript* de tipo opcional para representar o fato de que nem toda chave possuirá um valor associado, e para fornecer um meio de apagar um valor de uma chave atribuindo o valor `nil` para esta chave.
+
+### Opções de *Subscript*
+
+*Subscripts* podem ter qualquer número de parâmetros de entrada, e estes parâmetros podem ser de qualquer tipo. *Subscripts* também podem retornar qualquer tipo. *Subscripts* podem usar *variadic parameters*, mas eles não podem usar parâmetros *in-out* ou fornecer valores padrão.
+
+Uma *class* ou *struct* pode fornecer quantas implementações de *subscripts* forem necessárias, e o *subscript* apropriado para uso será inferido baseado nos tipos de valor ou valores que estão entre os colchetes do *subscript* no momento em que o *subscript* for usado. Esta definição de múltiplos *subscripts* é chamada de *sobrecarga de subscript*.
+
+Apesar de ser comum um *subscript* receber um único parâmetro, é possível também definir um *subscript* com múltiplos parâmetros se for apropriado para o seu tipo. O exemplo a seguir define uma estrutura `Matrix`, a qual representa uma matriz bidimensional de valores de tipo `Double`. O *subscript* da estrutura `Matrix` recebe dois parâmetros inteiros:
+
+```swift
+struct Matrix {
+    let rows: Int, columns: Int
+
+    var grid: [Double]
+
+    init(rows: Int, columns: Int) {
+        self.rows = rows
+        self.columns = columns
+        grid = Array(repeating: 0.0, count: rows * columns)
+    }
+
+    func indexIsValid(row: Int, column: Int) -> Bool {
+        return row >= 0 && row < rows && column >= 0 && column < columns
+    }
+
+    subscript(row: Int, column: Int) -> Double {
+        get {
+            assert(indexIsValid(row: row, column: column), "Índice fora do intervalo")
+            return grid[(row * columns) + column]
+        }
+
+        set {
+            assert(indexIsValid(row: row, column: column), "Índice fora do intervalo")
+            grid[(row * columns) + column] = newValue
+        }
+    }
+}
+```
+
+`Matrix` fornece um inicializador que recebe dois parâmetros chamados `rows` e `columns`, e cria um *array* que é grande o bastante para armazenar `rows * columns` valores de tipo `Double`. Cada posição da matriz recebe um valor inicial `0.0`. Para tal, o tamanho do *array* e o valor inicial `0.0` são passados para um inicializador de *array* que cria e inicializa um novo *array* com o tamanho correto. Este inicializador é descrito com mais detalhes em Criando um Array com um Valor Padrão.<!--TODO: Adicionar link para o capítulo Criando um Array com um Valor Padrão -->
+
+É possível construir uma nova instância de `Matrix` passando o número apropriado de linhas e colunas para o seu inicializador:
+
+```swift
+var matrix = Matrix(rows: 2, columns: 2)
+```
+
+O exemplo anterior cria uma nova instância de `Matrix` com duas linhas e duas colunas. O *array* `grid` desta instância de `Matrix` é efetivamente uma versão achatada (*flattened* no original) da matriz, lendo-se do canto superior esquerdo para o inferior direito:
+
+<!-- TODO: Adicionar imagem -->
+
+Valores podem ser atribuidos na matriz passando-se o número de linhas e colunas no *subscript*, separados por vírgula:
+
+```swift
+matrix[0, 1] = 1.5
+matrix[1, 0] = 3.2
+```
+
+Estes dois comandos chamam o método `set` do *subscript* para atribuir o valor `1.5` à posição superior direita da matriz (onde `row` é `0` e `column` é `1`), e `3.2` à posição inferior esquerda (onde `row` é `1` e `column` é `0`):
+
+<!-- TODO: Adicionar imagem -->
+
+Os métodos `get` e `set` do *subscript* de `Matrix` contém uma asserção que verifica se os valores de `row` e `column` são válidos. Para auxiliar essas asserções, `Matrix` inclui um método de conveniência chamado `indexIsValid(row:column:)`, o qual verifica se os valores de `row` e `column` então dentro dos limites da matriz:
+
+```swift
+func indexIsValidForRow(row: Int, column: Int) -> Bool {
+    return row >= 0 && row < rows && column >= 0 && column < columns
+}
+```
+
+Uma asserção é disparada se você tentar acessar um *subscript* que está fora dos limites da matriz:
+
+```swift
+let someValue = matrix[2, 2]
+// Isto dispara uma asserção, porque [2, 2] está fora dos limites da matriz
+```
