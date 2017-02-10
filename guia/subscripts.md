@@ -63,3 +63,23 @@ Neste exemplo, uma nova instância de `TimesTable` é criada para representar a 
 > NOTA
 >
 > Uma tabuada de multiplicação *n*-ária é baseada em uma definição matemática fixa. Não é apropriado atribuir um novo valor a `threeTimesTable[someIndex]`, por isso o *subscript* de `TimesTable` é definido como um *subscript* de tipo somente-leitura.
+
+### Uso de *Subscript*
+
+A função exata de um *subscript* depende do contexto no qual ele é usado. Normalmente, *subscripts* são usados como atalhos para acessar os elementos de uma coleção, lista ou sequência. Você é livre para implementar *subscripts* da forma mais apropriada à funcionalidade da sua *class* ou *struct*.
+
+Por exemplo, o tipo `Dictionary` em Swift implementa um *subscript* para atribuir e recuperar os valores armazenados em uma instância de `Dictionary`.
+
+É possível adicionar um valor em um *dictionary* fornecendo uma chave com o mesmo tipo que a chave do *dictionary* entre colchetes de *subscript*, e então atribuir um valor com o mesmo tipo que o valor do *dictionary* ao *subscript*:
+
+```swift
+var numberOfLegs = ["aranha": 8, "formiga": 6, "gato": 4]
+
+numberOfLegs["pássaro"] = 2
+```
+
+O exemplo acima define uma variável chamada `numberOfLegs` e a inicializa com um literal *dictionary* contendo três pares chave-valor. O tipo do *dictionary* `numberOfLegs` é inferido como sendo `[String: Int]`. Após criar o *dictionary*, este exemplo usa a atribuição de *subscript* para adicionar uma chave `"pássaro"` de tipo `String` e o valor `2` de tipo `Int` ao *dictionary*. Para mais informações sobre *subscripts* em `Dictionary`, visite Acessando e Modificando um *Dictionary*.<!--TODO: Adicionar link para o capítulo Acessando e Modificando um Dictionary -->
+
+> NOTA
+>
+> O tipo `Dictionary` em Swift implementa um *subscript* chave-valor que recebe e retorna um tipo *opcional*. Para o *dictionary* acima `numberOfLegs`, o *subscript* chave-valor recebe e retorna um valor do tipo `Int?`, ou "`Int` opcional". O tipo `Dictionary` usa um *subscript* de tipo opcional para representar o fato de que nem toda chave possuirá um valor associado, e para fornecer um meio de apagar um valor de uma chave atribuindo o valor `nil` para esta chave.
