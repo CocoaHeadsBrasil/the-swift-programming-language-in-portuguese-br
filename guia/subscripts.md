@@ -51,7 +51,7 @@ struct TimesTable {
 
 let threeTimesTable = TimesTable(multiplier: 3)
 
-print("seis vezes três é \\(threeTimesTable[6])")
+print("seis vezes três é \(threeTimesTable[6])")
 
 // Imprime "seis vezes três é 18"
 ```
