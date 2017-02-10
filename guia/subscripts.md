@@ -1,8 +1,8 @@
 ## Subscripts
 
-*Classes*, *structures* e *enumerations* podem definir *subscripts*, que são atalhos usados para acessar elementos de uma coleção, lista ou sequência. Você pode usar *subscripts* para definir e obter valores a partir de um índice sem a necessidade de métodos sepadados para estas ações. Por exemplo, você pode acessar elementos de uma instância de 'Array' utilizando 'someArray[index]' e acessar elementos de uma instância de 'Dictionary' utilizando 'someDictionary[key]'.
+*Classes*, *structures* e *enumerations* podem definir *subscripts*, os quais são atalhos para acessar os elementos de uma coleção, lista ou sequência. *Subscripts* são usados para definir e obter valores a partir de um índice, sem a necessidade de métodos separados para estas ações. Por exemplo, para acessar elementos de uma instância de 'Array' utiliza-se 'someArray[index]' e para acessar elementos de uma instância de 'Dictionary' utiliza-se 'someDictionary[key]'.
 
-Você pode definir múltiplos *subscripts* para um mesmo tipo, e o *subscript* sobrecarregado apropriado para uso é escolhido baseado no tipo do índice que foi passado para o *subscript*. *Subscripts* não estão limitados a uma única dimensão, e você pode definir *subscripts* com múltiplos parâmetros de entrada para se adequar às necessidades do tipo que você está definindo.
+É possível definir múltiplos *subscripts* para um único tipo, e o *subscript* sobrecarregado apropriado para uso é selecionado baseado no tipo do índice passado para o *subscript*. *Subscripts* não estão limitados a uma única dimensão, e é possível definir *subscripts* com múltiplos parâmetros de entrada para se adequar às necessidades do tipo que está sendo criado.
 
 ### Sintaxe de *Subscript*
 
