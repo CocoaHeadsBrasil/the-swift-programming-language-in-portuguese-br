@@ -5,7 +5,7 @@
 
 Esse projeto é uma iniciativa do CocoaHeads Brasil que tem como objetivo traduzir o livro oficial de Swift da Apple para o Português Brasileiro. 
 
-Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift3.1).epub)
+Link do livro original: [Swift.org](https://docs.swift.org/swift-book/)
 
 ---
 
