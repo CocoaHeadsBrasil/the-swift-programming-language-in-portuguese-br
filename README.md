@@ -23,7 +23,7 @@ Link do livro original: [Swift.org](https://swift.org/documentation/TheSwiftProg
 1. Palavras em inglês que não forem traduzidas, colocar em itálico;
 2. Código inline colocar entre crases para ficar alo como: defina um constante de tipo `String` e valor `"John Appleseed"`;
 3. Código em bloco deve conter syntax highlight do Swift;
-4. Traduzir termo técnico apenas se fizer sentido. Se for prejudicar o entendimento, é preferível manter o termo original. ex.: Closures;
+4. Traduzir termo técnico apenas se fizer sentido. Se for prejudicar o entendimento, é preferível manter o termo original. ex.: Closures. Existe uma ferramenta para [tradução de terminologias da Microsoft](http://www.microsoft.com/Language/pt-br/Search.aspx); se fizer sentido utiliza-la para tirar dúvidas, utilize-a!
 5. Notas de rodapé devem ser criadas como quote do markdown, usando o sinal de `>` na frente;
 6. **Não esqueça** de habilitar o verificador ortográfico do seu editor. Isso poupa **muito** tempo de que está revisando. Editores preferidos: [MacDown](http://macdown.uranusjr.com/) ou [Mou](http://25.io/mou/).
 
